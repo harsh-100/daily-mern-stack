@@ -1,0 +1,35 @@
+body {
+  /* background-color: #f02e0750; */
+  background-color: #dee1e6;
+  /* background-image: url("./grass-test-2.jpeg"); */
+  background-image: linear-gradient(
+    50deg,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-repeat: no-repeat;
+  /* background-position: ; */
+  object-fit: cover;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: dashed;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 400;
+}

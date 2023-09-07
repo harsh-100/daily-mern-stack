@@ -1,0 +1,15 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  /* background-color: red; */
+}
+
+table {
+  border: 2px solid black;
+  border-collapse: collapse;
+  background-color: palegreen;
+}
+
+thead {
+  background-color: brown;
+}

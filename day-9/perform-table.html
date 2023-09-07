@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      table {
+        border: 2px solid;
+        width: 800px;
+        border-collapse: collapse;
+      }
+      thead {
+        background-color: brown;
+      }
+
+      th {
+        padding: 10px;
+        color: white;
+        text-align: center;
+      }
+
+      td {
+        padding: 10px;
+        text-align: center;
+      }
+      .row-primary {
+        background-color: aliceblue;
+      }
+      .row-secondary {
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-primary">
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+          </tr>
+          <tr class="row-secondary">
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

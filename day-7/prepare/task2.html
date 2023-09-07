@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+      /* Quiz Container Style */
+
+      .quiz-container {
+        text-align: center;
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Question Style */
+      h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      /* Answer List Style */
+      .answer-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .answer-list li {
+        margin: 10px;
+      }
+
+      input[type="radio"]:hover {
+        box-shadow: 0px 0px 0px 5px rgba(80, 80, 200, 0.2);
+        border-radius: 50%;
+        opacity: 1;
+      }
+      /* Button Style */
+      .my-button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .my-button:hover {
+        background-color: #45a049;
+      }
+
+      .my-button:active {
+        background-color: #367832;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz-container">
+      <h2>Question 1: What is the capital of France?</h2>
+      <ul class="answer-list">
+        <li>
+          <label
+            ><input type="radio" name="answer" value="paris" /> Paris</label
+          >
+        </li>
+        <li>
+          <label
+            ><input type="radio" name="answer" value="london" /> London</label
+          >
+        </li>
+        <li>
+          <label
+            ><input type="radio" name="answer" value="berlin" /> Berlin</label
+          >
+        </li>
+      </ul>
+      <button class="my-button">Submit Answer</button>
+
+      <!-- Alongside the button customization, :
+
+Change the background color of the quiz container.
+Adjust the font size and color of the question.
+Customize the appearance of the answer list (e.g., change the bullet points to colorful icons or images).
+Add hover effects to the answer choices.
+Change the submit button's color and shape.
+Add animations or transitions to make the interface more engaging. -->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        color: black;
+      }
+
+      body {
+        background-color: rgba(78, 75, 75, 0.692);
+      }
+
+      #navbar {
+        background-color: white;
+        padding-top: 15px;
+        font-family: "Lato", sans-serif;
+        font-size: 15px;
+      }
+
+      .transform:hover {
+        color: red;
+      }
+
+      .active {
+        color: red;
+      }
+      .active:hover {
+        color: red;
+      }
+
+      .bannervideo {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+      }
+
+      li {
+        display: inline;
+        float: right;
+        padding: 10px;
+      }
+
+      h1,
+      h2,
+      p {
+        color: white;
+      }
+
+      h1 {
+        font-family: "Lato", sans-serif;
+        padding-left: 25px;
+        font-size: 150px;
+      }
+
+      h2 {
+        color: rgba(255, 255, 255, 0.801);
+        font-family: "Lato", sans-serif;
+        margin-top: 18px;
+        margin-left: 61%;
+        font-size: 40px;
+      }
+
+      .name {
+        color: rgb(255, 0, 0);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      .name:hover {
+        color: #fffbfbf8;
+      }
+
+      p {
+        font-family: "Lato", sans-serif;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 61%;
+        top: 30px;
+      }
+      #me {
+        width: 50px;
+        height: 50px;
+        padding-left: 75%;
+        position: absolute;
+        left: 70px;
+        top: 250px;
+      }
+
+      button {
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        margin-top: 10px;
+        border-radius: 10%;
+        left: 125vh;
+        font-family: "Lato", sans-serif;
+        background-color: rgb(240, 0, 0);
+        color: white;
+      }
+      button:hover {
+        background-color: white;
+        color: black;
+      }
+
+      .fa {
+        padding: 20px;
+        margin-bottom: 5px;
+        margin-left: 150vh;
+        font-size: 30px;
+        width: 50px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 100%;
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        background-color: #ffffff;
+      }
+
+      .fa:hover {
+        color: red;
+      }
+
+      .footer {
+        text-align: center;
+        border: 1px solid black;
+        padding: 10px;
+        font-family: "Lato", sans-serif;
+        background-color: rgb(10, 10, 10);
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        color: white;
+      }
+
+      .contact {
+        position: absolute;
+        font-family: "Lato", sans-serif;
+
+        border-radius: 10px;
+        padding-bottom: 10px;
+        margin-top: 10vh;
+        margin-bottom: 10px;
+        margin-left: 70%;
+      }
+
+      .map {
+        position: absolute;
+        padding-left: 15px;
+        padding-top: 15px;
+        border-radius: 25px;
+      }
+
+      .aboutus {
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- this is navbar -->
+    <nav id="navbar">
+      <ul>
+        <a id="logo">
+          <img src="../IMAGES/logo.png" width="100px" />
+        </a>
+        <li>
+          <a class="transform" href="../HTML/contactus.html" target="_blank"
+            >CONTACT US</a
+          >
+        </li>
+        <li>
+          <a class="transform" href="../HTML/portfolio.html" target="_blank"
+            >PORTFOLIO</a
+          >
+        </li>
+        <li>
+          <a class="transform" href="../HTML/services.html" target="_blank"
+            >SERVICES</a
+          >
+        </li>
+        <li>
+          <a class="transform" href="../HTML/about.html" target="_blank"
+            >ABOUT</a
+          >
+        </li>
+        <li><a class="active" href="../HTML/main.html">HOME</a></li>
+      </ul>
+    </nav>
+
+    <!-- this is banner -->
+    <banner>
+      <video autoplay loop muted plays-inline class="bannervideo">
+        <source src="../videos/fire.mov" />
+      </video>
+    </banner>
+
+    <!-- this is body part-->
+    <h1>
+      DESIGN THE <br />
+      DREAM
+    </h1>
+    <h2>
+      Hi There, <br />
+      I'm <span class="name">Bhanu</span>
+    </h2>
+    <p>
+      Let's build quality products in programming and design with my services
+    </p>
+    <span id="me">
+      <img src="../IMAGES/avatar.png" alt="myself" />
+    </span>
+    <a
+      href="https://instagram.com/shanu_rathi_04?utm_source=qr&igshid=NGExMmI2YTkyZg%3D%3D"
+      target="_blank"
+      class="fa fa-instagram"
+    ></a>
+    <button>About Me</button>
+
+    <!-- this is footer area -->
+    <footer class="footer">
+      Copyright © 2023 All rights reserved &nbsp;&nbsp; Designed & Developed by
+      Bhanu
+    </footer>
+  </body>
+</html>

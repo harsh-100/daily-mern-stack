@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+      /* Apply a subtle box shadow to each table row */
+      .styled-table tr {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adjust the shadow properties as needed */
+        max-width: 800px;
+        margin: 0px auto;
+        /* margin-bottom: 200px; */
+      }
+
+      /* Style table headers */
+      .styled-table th {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+      }
+
+      /* Style table data cells */
+      .styled-table td {
+        padding: 8px;
+        text-align: center;
+      }
+
+      /* Remove border-collapse to separate rows */
+      .styled-table {
+        border-collapse: separate;
+        border-spacing: 0; /* Adjust the spacing between cells as needed */
+        width: 100%;
+      }
+      .table-container {
+        max-width: 800px; /* Limit the table size */
+        margin: 0 auto; /* Center the table horizontally */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-container">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+          </tr>
+          <tr>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+          <tr>
+            <td>Data 7</td>
+            <td>Data 8</td>
+            <td>Data 9</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
+
+<!-- https://codepen.io/faaezahmd/pen/dJeRex  for reference  -->

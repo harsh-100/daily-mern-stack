@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+      /* Apply border to the table */
+      table {
+        border-collapse: separate;
+        border: 2px solid #333; /* Adjust the color and width as needed */
+        width: 100%; /* Make the table responsive by taking full width of the container */
+      }
+
+      /* Style table headers */
+      th {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+      }
+
+      /* Style table data cells */
+      td {
+        padding: 8px;
+        text-align: center; /* Center-align table data */
+      }
+
+      /* Align the table within its container */
+      .table-container {
+        max-width: 800px; /* Limit the table size */
+        margin: 0 auto; /* Center the table horizontally */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Data 1</td>
+            <td>Data 2</td>
+            <td>Data 3</td>
+          </tr>
+          <tr>
+            <td>Data 4</td>
+            <td>Data 5</td>
+            <td>Data 6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+h1 {
+  text-decoration: solid;
+  text-align: center;
+}
+
+section {
+  background-image: url("./grass-test-2.jpeg");
+  background-repeat: repeat-x;
+  /* width: 100px;
+  height: 100px; */
+}
+
+body {
+  background-image: url("./grass-test-2.jpeg");
+  background-image: linear-gradient(
+    30deg,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* width: 100vw; */
+  background-size: cover;
+  background-position: center top;
+  /* height: 100vh; */
+}
+
+footer {
+  /* background-color: #fa7e1e; */
+  /* background-image: linear-gradient(80deg, red, yellow); */
+  background-image: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+
+  /* another property border top */
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border;
+}

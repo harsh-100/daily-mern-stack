@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Box Model Cards</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .card-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .card {
+        width: 200px;
+        height: 200px;
+        background-color: #3498db; /* Example color: Blue */
+        border: 2px solid #e74c3c; /* Example border: Red, 2px thick */
+        padding: 20px; /* Example padding: 20px */
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Example box shadow: 5px horizontal, 5px vertical, 10px blur, and a slight opacity */
+        margin: 20px; /* Spacing between cards */
+        color: #fff; /* Text color for the content inside the card */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card">1</div>
+      <div class="card">2</div>
+      <div class="card">3</div>
+      <!-- Add your colorful cards here -->
+    </div>
+  </body>
+</html>
