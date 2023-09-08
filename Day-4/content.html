@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* Style the accordion */
+      .accordion {
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px;
+        overflow: hidden;
+      }
+
+      /* Style the accordion button (question) */
+      .accordion-button {
+        background-color: #ddd;
+        color: #333;
+        cursor: pointer;
+        padding: 10px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: background-color 0.3s;
+      }
+
+      /* Change the button color when clicked */
+      .accordion-button.active {
+        background-color: #ccc;
+      }
+
+      /* Style the panel (answer) */
+      .accordion-panel {
+        padding: 10px;
+        display: none;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accordion">
+      <button class="accordion-button">What is HTML?</button>
+      <div class="accordion-panel">
+        HTML stands for HyperText Markup Language. It's the language used to
+        create web pages.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-button">What is CSS?</button>
+      <div class="accordion-panel">
+        CSS stands for Cascading Style Sheets. It's used to make web pages look
+        nice by adding colors, fonts, and layouts.
+      </div>
+    </div>
+
+    <div class="accordion">
+      <button class="accordion-button">What is JavaScript?</button>
+      <div class="accordion-panel">
+        JavaScript is a programming language that adds interactivity to web
+        pages. It can make things happen when you click or interact with
+        elements.
+      </div>
+    </div>
+
+    <script>
+      // Add click event listeners to the accordion buttons
+      const accordionButtons = document.querySelectorAll(".accordion-button");
+      accordionButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Toggle the active class to change button color
+          button.classList.toggle("active");
+          // Toggle the display of the panel (answer)
+          const panel = button.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
