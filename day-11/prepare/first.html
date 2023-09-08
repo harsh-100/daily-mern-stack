@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Float and Positioning Task</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        width: 800px;
+        margin: 50px auto;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px;
+        float: left;
+      }
+
+      #box1 {
+        background-color: #ffa07a;
+        top: 20px;
+      }
+
+      #box2 {
+        background-color: #98fb98;
+        right: 20px;
+      }
+
+      #box3 {
+        background-color: #87cefa;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="box1">Box 1</div>
+      <div class="box" id="box2">Box 2</div>
+      <div class="box" id="box3">Box 3</div>
+    </div>
+  </body>
+</html>

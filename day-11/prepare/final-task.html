@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fixed Navbar and Scroll-Up Button Task</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 10px 20px;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .navbar h1 {
+        margin: 0;
+      }
+
+      .navbar ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        margin-right: 30px;
+      }
+
+      .navbar li {
+        margin-left: 20px;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: #fff;
+        transition: color 0.3s;
+      }
+
+      .navbar a:hover {
+        color: #00f;
+      }
+
+      .section {
+        padding: 100px;
+      }
+
+      .scroll-up-btn {
+        /* position: fixed; */
+        bottom: 20px;
+        left: 20px;
+        background-color: #00f;
+        color: #fff;
+        font-size: 24px;
+        padding: 10px 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        display: none;
+      }
+
+      .scroll-up-btn span {
+        display: inline-block;
+        transform: rotate(90deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>My Website</h1>
+      <ul>
+        <li><a href="#section1">Section 1</a></li>
+        <li><a href="#section2">Section 2</a></li>
+        <li><a href="#section3">Section 3</a></li>
+      </ul>
+    </div>
+
+    <div id="section1" class="section">
+      <h2>Section 1</h2>
+      <!-- Content for Section 1 -->
+    </div>
+
+    <div id="section2" class="section">
+      <h2>Section 2</h2>
+      <!-- Content for Section 2 -->
+    </div>
+
+    <div id="section3" class="section">
+      <h2>Section 3</h2>
+      <!-- Content for Section 3 -->
+    </div>
+
+    <div class="scroll-up-btn" id="scrollUpBtn">
+      <span>&uarr;</span>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

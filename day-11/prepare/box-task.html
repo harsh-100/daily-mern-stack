@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colorful Sections</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+
+      .section1,
+      .section2 {
+        display: flex;
+      }
+
+      .box {
+        flex-grow: 1;
+        height: 200px;
+      }
+
+      #box1 {
+        background-color: #ffa07a; /* Light Salmon */
+      }
+
+      #box2 {
+        background-color: #98fb98; /* Pale Green */
+      }
+
+      #box3 {
+        background-color: #87cefa; /* Light Sky Blue */
+      }
+
+      #box4 {
+        background-color: #ffd700; /* Gold */
+      }
+
+      #box5 {
+        background-color: #ff69b4; /* Hot Pink */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section1">
+      <div class="box" id="box1"></div>
+      <div class="box" id="box2"></div>
+    </section>
+
+    <section class="section2">
+      <div class="box" id="box3"></div>
+      <div class="box" id="box4"></div>
+      <div class="box" id="box5"></div>
+    </section>
+  </body>
+</html>
+
+<!-- https://www.w3schools.com/cssref/playdemo.php?filename=playcss_flex-grow -->
