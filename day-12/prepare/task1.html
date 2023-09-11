@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Color Changing Animation</title>
+    <style>
+      .circle {
+        width: 200px;
+        height: 200px;
+        margin: 30px;
+        /* margin: 0px; */
+        background-color: orange;
+        border-radius: 50%;
+
+        /* animation: colorChange 3s infinite ease-in; */
+
+        animation-name: colorChange;
+        animation-duration: 1s;
+        transition: ease-in;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes colorChange {
+        0%,
+        100% {
+          background-color: yellow;
+          box-shadow: 0px 0px 100px yellow;
+        }
+        20% {
+          background-color: blue;
+          box-shadow: 0px 0px 10px blue;
+        }
+
+        50% {
+          background-color: red;
+          box-shadow: 0px 0px 10px red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circle"></div>
+  </body>
+</html>

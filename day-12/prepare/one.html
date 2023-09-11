@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent > p {
+        color: blue;
+      }
+
+      p + p {
+        font-weight: bold;
+      }
+
+      p ~ p {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- child selector -->
+    <div class="parent">
+      <p>Child Element</p>
+      <span>Another Child</span>
+    </div>
+
+    <!-- sibling selector '+' -->
+
+    <p>First Paragraph</p>
+    <p>Second Paragraph</p>
+    <p>Third Paragraph</p>
+
+    <!-- sibling selector '~' (this one will take all the sibling sharing the same parent) -->
+
+    <div class="parentTwo">
+      <p>First Paragraph</p>
+      <span>Not a Paragraph</span>
+      <p>Second Paragraph</p>
+      <p>Third Paragraph</p>
+    </div>
+  </body>
+</html>

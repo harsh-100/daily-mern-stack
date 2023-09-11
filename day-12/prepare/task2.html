@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fade-in Animation</title>
+    <style>
+      .fade-in {
+        opacity: 0;
+        /* animation: fadeIn 2s ; */
+        animation-name: fadeIn;
+        animation-duration: 2s;
+        animation-direction: reverse;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          font-size: 10px;
+        }
+        to {
+          opacity: 1;
+          font-size: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fade-in">This text will fade in.</div>
+  </body>
+</html>

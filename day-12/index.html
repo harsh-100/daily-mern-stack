@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <h1></h1>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        margin: 30px;
+        animation-name: bounceBox;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+
+      .box2 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin: 30px;
+        animation-name: moveAheadBox;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes moveAheadBox {
+        0%,
+        100% {
+          transform: translateX(20px);
+          width: 200px;
+        }
+        50% {
+          transform: translateX(170px);
+          width: 20px;
+        }
+      }
+
+      @keyframes bounceBox {
+        0%,
+        100% {
+          transform: translateY(0px);
+          width: 20px;
+        }
+        50% {
+          transform: translateY(70px);
+          width: 120px;
+        }
+        /* 100% {
+          transform: translateY(0px);
+          width: 20px;
+        } */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <div class="box2"></div>
+  </body>
+</html>

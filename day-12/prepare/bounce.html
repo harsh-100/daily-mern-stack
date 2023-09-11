@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bouncing Ball Animation</title>
+    <style>
+      .ball {
+        width: 150px;
+        height: 150px;
+        background-color: blue;
+        position: relative;
+        /* animation: bounce 2s infinite; */
+        animation-name: bounce;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+      }
+      .ball2 {
+        width: 150px;
+        height: 150px;
+        background-color: blue;
+        position: relative;
+        animation: bounce2 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(10px);
+          width: 10px;
+        }
+        50% {
+          transform: translateY(200px);
+          width: 100px;
+        }
+      }
+      @keyframes bounce2 {
+        0%,
+        100% {
+          transform: translateX(10px);
+        }
+        50% {
+          transform: translateX(200px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball"></div>
+    <div class="ball2"></div>
+  </body>
+</html>
