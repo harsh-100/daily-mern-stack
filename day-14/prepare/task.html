@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+        text-align: center;
+        max-width: 300px;
+        margin: auto;
+        transition: transform 0.3s, border 0.3s;
+      }
+
+      .card img {
+        max-width: 100%;
+        border-radius: 8px;
+        width: 120px;
+      }
+
+      .card h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        font-size: 1em;
+        margin-bottom: 20px;
+      }
+
+      .explore-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .explore-button:hover {
+        background-color: #0056b3;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+        border: 2px solid #007bff;
+      }
+
+      @media screen and (max-width: 480px) {
+        .card {
+          padding: 10px;
+        }
+
+        .card h2 {
+          font-size: 1.1em;
+        }
+
+        .card p {
+          font-size: 0.8em;
+        }
+        img {
+          display: none;
+        }
+      }
+
+      @media screen and (min-width: 490px) and (max-width: 768px) {
+        .card {
+          max-width: 100%;
+          margin: 10px 0;
+        }
+
+        .card h2 {
+          font-size: 1.2em;
+        }
+
+        .card p {
+          font-size: 0.9em;
+        }
+      }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="card">
+      <h2>Destination 1</h2>
+      <img src="2download.jpeg" alt="Destination 1" />
+      <p>Description of Destination 1.</p>
+      <button class="explore-button">Explore Now</button>
+    </div>
+
+    <i class="fa fa-car" style="font-size: 30px"></i>
+    <div class="card">
+      <h2>Destination 2</h2>
+      <img src="download.png" alt="Destination 2" />
+      <p>Description of Destination 2.</p>
+      <button class="explore-button">Explore Now</button>
+    </div>
+
+    <!-- Add more cards as needed -->
+  </body>
+</html>
