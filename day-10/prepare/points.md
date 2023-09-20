@@ -1,4 +1,4 @@
-max-width use
+- max-width use
 
 - display -> inline
   , inline-block , block , none and visibility - hidden
