@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Array Example</title>
+  </head>
+  <body>
+    <script>
+      // Define an array of numbers
+      var numbers = [10, 20, 30, 40, 50];
+
+      // Accessing elements in the array
+      var firstNumber = numbers[0]; // The first element (index 0) is 10
+      var secondNumber = numbers[1]; // The second element (index 1) is 20
+
+      // Modify an element in the array
+      numbers[2] = 35; // Change the third element (index 2) to 35
+
+      // Adding a new element to the end of the array
+      numbers.push(60); // Adds 60 to the end of the array
+
+      // Removing an element from the end of the array
+      var removedElement = numbers.pop(); // Removes and returns the last element (60)
+
+      // Displaying the array and modified elements
+      console.log("Original Array: " + numbers.join(", ") + "<br>");
+      console.log("First Element: " + firstNumber + "<br>");
+      console.log("Modified Array: " + numbers.join(", ") + "<br>");
+      console.log("Removed Element: " + removedElement + "<br>");
+    </script>
+  </body>
+</html>
