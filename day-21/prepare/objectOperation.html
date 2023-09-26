@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Object Example</title>
+  </head>
+  <body>
+    <script>
+      // Define an object representing a person
+      var person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 30,
+        city: "New York",
+      };
+
+      // Accessing properties of the object
+      var firstName = person.firstName; // "John"
+      var age = person.age; // 30
+
+      // Modifying a property of the object
+      person.age = 31;
+
+      // Adding a new property to the object
+      person.email = "john.doe@example.com";
+
+      // Displaying the object and modified properties
+      console.log("Original Object: " + JSON.stringify(person) + "<br>");
+      console.log("First Name: " + firstName + "<br>");
+      console.log("Modified Age: " + person.age + "<br>");
+      console.log("Updated Object: " + JSON.stringify(person) + "<br>");
+    </script>
+  </body>
+</html>
