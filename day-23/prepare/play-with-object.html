@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const games = new Object();
+      games.name = "Call of Duty";
+      games.publisher = "Activision Publishing Inc.‬";
+
+      games.platform = "Xbox One";
+
+      console.log(games);
+
+      //   shallow copy and deep copy
+      const person = {
+        firstName: "Maddy",
+        lastName: "R",
+        age: 20,
+        eyeColor: "blue",
+      };
+      const developer = person;
+      developer.age = 10;
+      console.log(
+        "🚀 ~ file: play-with-object.html:27 ~ developer:",
+        developer
+      );
+      console.log("🚀 ~ file: play-with-object.html:27 ~ developer:", person);
+    </script>
+  </body>
+</html>
