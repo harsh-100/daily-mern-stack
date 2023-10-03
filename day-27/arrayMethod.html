@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = ["apple", "mango", "guava"];
+      console.log(arr[2]); //accessing a particular index
+
+      //   array methods
+
+      console.log("Length of array ", arr.length);
+
+      //   pop method
+      let removeElement = arr.pop();
+      console.log("remaining array", arr);
+
+      //   push method
+      let newElement = arr.push("pineapple");
+
+      console.log(newElement, "newElement");
+      console.log("Array after push ", arr);
+
+      //   shift and unshift
+      arr.unshift("grapes");
+      arr.unshift("banana");
+
+      console.log("After unshift", arr);
+
+      //   join method
+
+      let stringToArray = "harsh agarwal";
+      console.log(stringToArray.split());
+
+      //   apple -> elppa
+
+      let strArray = arr.join("-");
+      console.log("Join method", strArray);
+      console.log("Join method", typeof strArray);
+
+      //   sort method
+      console.log("harsh", arr);
+    </script>
+  </body>
+</html>
