@@ -11,15 +11,22 @@
 
       // var age = 17;
       var age = Number(prompt("What is your age ? "));
-      if (age >= 18 && age < 22) {
-        alert("You will have a pepsi too");
-      } else if (age >= 22) {
-        alert("You can caste vote");
+      console.log("age:", age);
+      console.log("isnan:", isNaN(age));
+
+      if (isNaN(age)) {
+        alert("give me a proper input ");
       } else {
-        let diffAge = 18 - age;
-        alert(
-          `Sorry , not now , but you can give after ${diffAge} years you can give vote `
-        );
+        if (age >= 18 && age < 22) {
+          alert("You will have a pepsi too");
+        } else if (age >= 22) {
+          alert("You can caste vote");
+        } else {
+          let diffAge = 18 - age;
+          alert(
+            `Sorry , not now , but you can give after ${diffAge} years you can give vote `
+          );
+        }
       }
     </script>
   </body>
