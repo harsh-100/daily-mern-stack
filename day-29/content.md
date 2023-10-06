@@ -11,7 +11,7 @@
 
 [ _task - home_
 Task Description:
-Write a function calculate that takes two numbers and a callback function as arguments. The callback function should perform a mathematical operation on the two numbers and return the result.]
+Write a function "calculate" that takes two numbers and a callback function as arguments. The callback function should perform a mathematical operation on the two numbers and return the result.]
 
 - intro to foreach
   // Task: Create a function to greet each person in an array
