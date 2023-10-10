@@ -5,4 +5,4 @@ function sum(a, b) {
   console.log(result);
 }
 
-sum(2,3)
+sum(2, 3);
