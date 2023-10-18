@@ -4,6 +4,7 @@ function generateRandom(range) {
   return prettyNum;
 }
 
+
 generateRandom(10);
 console.log(generateRandom(10));
 console.log(generateRandom(10));
