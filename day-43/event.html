@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="test">This is my para</p>
+    <button id="myButton">check</button>
+
+    <script>
+      let para = document.getElementById("test");
+      let btn = document.getElementById("myButton");
+
+      btn.addEventListener("click", (a) => {
+        const newPara = document.createElement("p");
+        console.log("hey it is clicked 😜🎉", a);
+        para.innerHTML = "It is changed";
+
+        newPara.innerHTML = "data is here ";
+        document.body.appendChild(newPara);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="intro">Finding HTML Elements by Id</p>
+    <div>check</div>
+    <div>check</div>
+    <div>check</div>
+    <div>check</div>
+
+    <a name="html">HTML Tutorial</a><br />
+    <a name="css">CSS Tutorial</a><br />
+    <a name="xml">XML Tutorial</a><br />
+
+    <script>
+      let tag = document.getElementById("intro");
+
+      let tag2 = document.getElementsByTagName("div");
+      let all = document.anchors;
+
+      console.log(all);
+      console.log(tag.innerHTML == "check");
+      console.log(tag2);
+    </script>
+  </body>
+</html>
