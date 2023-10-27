@@ -1,0 +1,3 @@
+- how to use the query selector , (taking id , class )
+- let's us make a form
+- understand the validation in form from the example code

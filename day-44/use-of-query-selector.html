@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>querySelector Example</title>
+  </head>
+  <body>
+    <h1 id="heading">Hello, QuerySelector!</h1>
+    <p class="content">This is a simple example of querySelector.</p>
+    <button id="changeTextButton">Change Text</button>
+
+    <script>
+      // Using querySelector to select and manipulate elements
+      const heading = document.querySelector("#heading"); // Selects the element with id "heading"
+      const content = document.querySelector(".content"); // Selects the element with class "content"
+      const changeTextButton = document.querySelector("#changeTextButton");
+
+      // Change the text of the heading when the button is clicked
+      changeTextButton.addEventListener("click", function () {
+        heading.textContent = "Text Changed!";
+      });
+
+      // Change the text of the content paragraph when the paragraph itself is clicked
+      content.addEventListener("click", function () {
+        content.textContent = "Paragraph Clicked!";
+      });
+    </script>
+  </body>
+</html>

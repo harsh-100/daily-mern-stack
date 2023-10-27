@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="myPara">My para</p>
+    <p class="myPara">My para</p>
+
+    <script>
+      let para = document.querySelector("#myPara");
+      let para2 = document.querySelector(".myPara");
+      console.log("🚀 ~ file: index.html:15 ~ para2:", para2);
+      para.addEventListener("click", () => {
+        para.innerText =
+          " Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi tenetur ipsam officiis? Enim numquam deleniti, iusto dolorum tempore eveniet, voluptas reprehenderit modi at ipsam pariatur quaerat. Quaerat eaque quos dolorem";
+
+        para.style.color = "red";
+      });
+    </script>
+  </body>
+</html>
