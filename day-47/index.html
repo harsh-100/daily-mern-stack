@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="test" id="first" onchange="changeFunc(event)" />
+
+    <script>
+      function changeFunc(e) {
+        console.log(e.target.value);
+        let stringValue = e.target.value;
+
+        if (stringValue.length > 6) {
+          alert("form submit");
+        }
+        // console.log("calling>>>");
+      }
+
+      //   function onkeyDownFunc() {
+      //     console.log("onkeyDownFunc>>>>");
+      //   }
+
+      //   function on
+    </script>
+  </body>
+</html>

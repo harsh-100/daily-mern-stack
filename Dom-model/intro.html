@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>DOM Model cases</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+
+    <script>
+      document.getElementById("demo").innerHTML = "Hello World!";
+
+      console.log(document.lastModified);
+      console.log(document.images);
+      console.log(document.timeline);
+      console.log(document.title);
+      console.log(document.referrer);
+      console.log(document.URL);
+      console.log(document.scripts);
+    </script>
+  </body>
+</html>
+
+<!-- refer link -> https://www.w3schools.com/js/js_htmldom_document.asp   (#TODO - Read every table here )-->
+<!-- Method	Description
+document.getElementById(id)	Find an element by element id
+document.getElementsByTagName(name)	Find elements by tag name
+document.getElementsByClassName(name)	Find elements by class name -->
+
+<!-- Changing HTML Elements
+Property	Description
+element.innerHTML =  new html content	Change the inner HTML of an element
+element.attribute = new value	Change the attribute value of an HTML element
+element.style.property = new style	Change the style of an HTML element
+Method	Description
+element.setAttribute(attribute, value)	Change the attribute value of an HTML element -->
+
+<!-- Adding and Deleting Elements
+Method	Description
+document.createElement(element)	Create an HTML element
+document.removeChild(element)	Remove an HTML element
+document.replaceChild(new, old)	Replace an HTML element
+document.appendChild(element)	Add an HTML element
+document.write(text)	Write into the HTML output stream -->
+
+<!-- Finding HTML Elements
+Often, with JavaScript, you want to manipulate HTML elements.
+
+To do so, you have to find the elements first. There are several ways to do this:
+
+Finding HTML elements by id
+Finding HTML elements by tag name
+Finding HTML elements by class name
+Finding HTML elements by CSS selectors
+Finding HTML elements by HTML object collections -->
+
+<!-- using the date function  -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="demo"></p>
+
+    <script>
+      document.getElementById("demo").innerHTML = "Date : " + Date();
+    </script>
+  </body>
+</html>
