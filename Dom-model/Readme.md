@@ -1,4 +1,8 @@
-best tasks for teaching the DOM model
+Best tasks for Learning the DOM model 🎉🚀
+### Note -> Atleast try 4 task and try to find out approach for them using the DOM manipulation
+
+> Success is not about being the best, but about constantly trying your best 😉
+
 
 Create a Form: In this task, ask your kids to create an HTML form with input fields, such as text inputs, radio buttons, checkboxes, and a submit button. They can use basic HTML for this and style it with CSS to make it visually appealing.
 
@@ -19,3 +23,6 @@ Interactive Survey or Quiz: Have them create a survey or quiz with multiple-choi
 Form Submission and Data Display: Teach them how to handle form submissions. When the user submits the form, use JavaScript to display the submitted data on the webpage, creating a summary or confirmation message.
 
 Styling with CSS: Encourage them to experiment with CSS to make the form look visually appealing. They can explore CSS animations, transitions, and styles to enhance the user experience.
+
+
+
