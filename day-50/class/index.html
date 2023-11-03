@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .user-info {
+        margin-bottom: 20px;
+      }
+      .user-info h2 {
+        margin-bottom: 10px;
+      }
+      .post-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .post-list li {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="user-info" id="user-info">
+      <h2>User Info</h2>
+      <p>Name: <span id="name"></span></p>
+      <p>Email: <span id="email"></span></p>
+      <p>Phone: <span id="phone"></span></p>
+    </div>
+
+    <div class="post-list" id="post-list">
+      <h2>User Posts</h2>
+      <ul id="posts"></ul>
+    </div>
+
+    <button id="decrement">Prev User</button>
+    <button id="increment">Next User</button>
+
+    <script>
+      let userCount = 1;
+      async function fetchUserData() {
+        let response = await fetch(
+          `https://jsonplaceholder.typicode.com/users/${userCount}`
+        );
+
+        let result = await response.json();
+
+        return result;
+      }
+
+      async function fetchUserPostData() {
+        let response = await fetch(
+          `https://jsonplaceholder.typicode.com/posts/?userId=${userCount}`
+        );
+
+        let result = await response.json();
+        return result;
+      }
+
+      async function updateUserData() {
+        let userData = await fetchUserData();
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let phone = document.getElementById("phone");
+
+        name.innerHTML = userData.name;
+        email.innerHTML = userData.email;
+        phone.innerHTML = userData.phone;
+      }
+
+      async function updatePostData() {
+        let postData = await fetchUserPostData();
+
+        let bigList = document.getElementById("posts");
+        bigList.innerHTML = "";
+
+        postData.map((eachObj) => {
+          let listItem = document.createElement("li");
+
+          listItem.innerHTML = eachObj.title;
+
+          bigList.appendChild(listItem);
+        });
+      }
+
+      let nextBtn = document.getElementById("increment");
+      let prevBtn = document.getElementById("decrement");
+
+      nextBtn.addEventListener("click", () => {
+        userCount = userCount + 1;
+
+        updatePostData();
+        updateUserData();
+        console.log("userCount", userCount);
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if (userCount > 1) {
+          userCount = userCount - 1;
+          updatePostData();
+          updateUserData();
+          console.log("userCount", userCount);
+        }
+      });
+
+      updateUserData();
+      updatePostData();
+    </script>
+  </body>
+</html>
