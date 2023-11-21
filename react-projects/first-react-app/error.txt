@@ -1,0 +1,23 @@
+PS E:\Grass Solution Workshop\react-app> npm install npm -g
+npm ERR! code EBADENGINE
+npm ERR! engine Unsupported engine
+npm ERR! engine Not compatible with your version of node/npm: npm@10.2.4
+npm ERR! notsup Not compatible with your version of node/npm: npm@10.2.4
+npm ERR! notsup Required: {"node":"^18.17.0 || >=20.5.0"}
+npm ERR! notsup Actual:   {"npm":"9.5.1","node":"v18.16.0"}
+ 
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\win11\AppData\Local\npm-cache\_logs\2023-11-20T13_42_38_779Z-debug-0.log
+PS E:\Grass Solution Workshop\react-app> node -v
+v18.16.0
+PS E:\Grass Solution Workshop\react-app> npm install npm -g
+npm ERR! code EBADENGINE
+npm ERR! engine Unsupported engine
+npm ERR! engine Not compatible with your version of node/npm: npm@10.2.4
+npm ERR! notsup Not compatible with your version of node/npm: npm@10.2.4
+npm ERR! notsup Required: {"node":"^18.17.0 || >=20.5.0"}
+npm ERR! notsup Actual:   {"npm":"9.5.1","node":"v18.16.0"}
+ 
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\win11\AppData\Local\npm-cache\_logs\2023-11-20T13_46_08_172Z-debug-0.log
+PS E:\Grass Solution
