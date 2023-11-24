@@ -1,7 +1,9 @@
 import "./App.css";
 
 import BodyComponent from "./components/BodyComponent";
+import Counter from "./components/counter";
 import Headers from "./components/Header";
+import TodoComponent from "./components/todoComponent";
 import UserCard from "./components/userCard";
 
 function AppComponent() {
@@ -25,7 +27,12 @@ function AppComponent() {
 
   return (
     <>
-      <Headers />
+      {/* <Counter /> */}
+
+      <TodoComponent />
+
+      {/* <Headers /> */}
+
       {/* <div className="cardContainer"> */}
       {/* <div className="cardContainer">
         {filteredData.map((oneObj) => (
@@ -38,11 +45,6 @@ function AppComponent() {
         ))}
       </div> */}
 
-      <ul>
-        {myTask.map((a, index) => (
-          <li key={index}>{a}</li>
-        ))}
-      </ul>
       {/* </div> */}
     </>
   );
