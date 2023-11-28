@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-const TodoComponent = () => {
-  const initialValue = JSON.parse(localStorage.getItem("user_task_array")) || [
+const TodoComponentWithLocalstorage = () => {
+  // Load tasks from localStorage or use default value
+  const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [
     { text: "Go to Market", complete: false },
     { text: "Buy vegetable", complete: false },
     { text: "Watch TV", complete: false },
@@ -9,9 +10,18 @@ const TodoComponent = () => {
     { text: "Singing", complete: false },
   ];
 
-  const [myTask, setMyTask] = useState(initialValue);
+  const [myTask, setMyTask] = useState(storedTasks);
+  const [activeValue, setActiveValue] = useState(storedTasks.filter((task) => !task.complete).length);
+  const [item, setItem] = useState("");
 
-  const [activeValue, setActiveValue] = useState(myTask.length);
+  useEffect(() => {
+    // Save tasks to localStorage whenever myTask changes
+    localStorage.setItem("tasks", JSON.stringify(myTask));
+
+    // Update the activeValue whenever myTask changes
+    setActiveValue(myTask.filter((task) => !task.complete).length);
+  }, [myTask]);
+
   const handleAddTask = () => {
     if (item) {
       let arr = [...myTask, { text: item, complete: false }];
@@ -19,38 +29,20 @@ const TodoComponent = () => {
       setItem("");
     }
   };
-  const [item, setItem] = useState("");
-  useEffect(() => {
-    let arr = [...myTask];
-
-    let newArr = arr.filter((each) => !each.complete).length;
-
-    let stringedData = JSON.stringify(myTask);
-    localStorage.setItem("user_task_array", stringedData);
-
-    setActiveValue(newArr);
-  }, [myTask]);
 
   function handleChange(e) {
-    console.log(e);
     setItem(e.target.value);
   }
 
   function handleCheckbox(index) {
     let arr = [...myTask];
-
-    console.log(myTask[index]);
     arr[index].complete = !arr[index].complete;
-
     setMyTask(arr);
-
-    // filter logic
-    let countArray = arr.filter((each) => !each.complete);
-    setActiveValue(countArray.length);
   }
+
   return (
     <>
-      <h1>My TO Do app:</h1>
+      <h1>My TO-DO app:</h1>
       <input
         type="text"
         placeholder="Add item here ..."
@@ -60,7 +52,7 @@ const TodoComponent = () => {
       <button onClick={handleAddTask}>Add</button>
       <ul>
         {myTask.map((eachValue, index) => (
-          <li>
+          <li key={index}>
             <input
               type="checkbox"
               checked={eachValue.complete}
@@ -78,9 +70,9 @@ const TodoComponent = () => {
           </li>
         ))}
       </ul>
-      Active TODO item : {activeValue}
+      Active TODO items: {activeValue}
     </>
   );
 };
 
-export default TodoComponent;
+export default TodoComponentWithLocalstorage;

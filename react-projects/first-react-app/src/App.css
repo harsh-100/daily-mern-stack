@@ -6,3 +6,33 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+/* demo css  */
+
+/* TodoComponent.css */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+}
+
+input {
+  margin-right: 8px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+p {
+  margin-top: 16px;
+  font-weight: bold;
+}

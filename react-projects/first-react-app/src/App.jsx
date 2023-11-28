@@ -3,7 +3,10 @@ import "./App.css";
 import BodyComponent from "./components/BodyComponent";
 import Counter from "./components/counter";
 import Headers from "./components/Header";
+import Timer from "./components/learn-useEffect";
+// import TodoComponent from "./prepare/todo-with-chechbox";
 import TodoComponent from "./components/todoComponent";
+import TodoComponentWithLocalstorage from "./prepare/todo-with-localstorage";
 import UserCard from "./components/userCard";
 
 function AppComponent() {
@@ -29,8 +32,10 @@ function AppComponent() {
     <>
       {/* <Counter /> */}
 
+      {/* <Timer /> */}
       <TodoComponent />
-
+      {/* <TodoComponentWithLocalstorage /> */}
+      {/* <TodoComponent /> */}
       {/* <Headers /> */}
 
       {/* <div className="cardContainer"> */}
