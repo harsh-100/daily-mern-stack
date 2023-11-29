@@ -19,6 +19,7 @@ const TodoComponent = () => {
       setItem("");
     }
   };
+
   const [item, setItem] = useState("");
   useEffect(() => {
     let arr = [...myTask];

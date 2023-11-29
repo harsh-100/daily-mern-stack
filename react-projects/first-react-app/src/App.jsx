@@ -1,8 +1,12 @@
 import "./App.css";
 
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import BodyComponent from "./components/BodyComponent";
 import Counter from "./components/counter";
 import Headers from "./components/Header";
+import HomePage from "./prepare/homeComp";
+import HomePageComponent from "./components/homePage";
 import Timer from "./components/learn-useEffect";
 // import TodoComponent from "./prepare/todo-with-chechbox";
 import TodoComponent from "./components/todoComponent";
@@ -28,12 +32,33 @@ function AppComponent() {
 
   // const filteredData = userData.filter((eachObj) => eachObj.age > 14);
 
+  // wrapper
   return (
     <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePageComponent name={"Home page"} />} />
+
+          <Route
+            path="/about"
+            element={<HomePageComponent name={"About page"} />}
+          />
+
+          <Route
+            path="/contact"
+            element={<HomePageComponent name={"Contact page"} />}
+          />
+        </Routes>
+      </BrowserRouter>
+
+      {/* <HomePageComponent /> */}
+
       {/* <Counter /> */}
 
       {/* <Timer /> */}
-      <TodoComponent />
+      {/* <TodoComponent /> */}
+      {/* <HomePage /> */}
+
       {/* <TodoComponentWithLocalstorage /> */}
       {/* <TodoComponent /> */}
       {/* <Headers /> */}
