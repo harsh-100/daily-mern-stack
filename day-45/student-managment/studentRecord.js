@@ -2,6 +2,7 @@ console.log("Succes 🐸");
 
 let studentTable = document.getElementById("studentRecord");
 const student = [];
+
 const firstEntry = { name: "joker", age: 12, id: 13 };
 const secondEntry = { name: "ravan", age: 12, id: 13 };
 
@@ -13,16 +14,12 @@ console.log(student);
 let button = document.querySelector("button");
 button.addEventListener("click", function () {
   console.log("hellow");
-  let name1 = prompt("Enter student name");
-  let age1 = prompt("Enter student age");
-  let id1 = prompt("Enter student id");
+  let name = prompt("Enter student name");
+  let age = prompt("Enter student age");
+  let id = prompt("Enter student id");
 
-  student.push({ name: name1, age: age1, id: id1 });
+  student.push({ name, age, id });
   updateProfile();
-
-  console.log(name1);
-  console.log(age1);
-  console.log(id1);
 });
 
 function updateProfile() {

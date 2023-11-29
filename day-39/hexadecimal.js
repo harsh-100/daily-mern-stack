@@ -16,3 +16,7 @@ let b = 8; // 1000
 console.log(a & b);
 console.log(a | b);
 console.log(a ^ b);
+
+// CamelCase;
+
+// SnakeCase;

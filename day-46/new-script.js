@@ -4,6 +4,7 @@ function addInput() {
   count++;
 
   let newBlock = document.createElement("div");
+  newBlock.id = `newDiv-${count}`;
 
   newBlock.innerHTML = `<label for="item${count}">Item ${count}:</label>
   <input type="text" id="item${count}" name="item[]" /><br /><br />`;
@@ -13,6 +14,7 @@ function addInput() {
   console.log("called", count);
 }
 
+console.log("count", count);
 function handleSubmit(e) {
   e.preventDefault();
   let arr = [];
@@ -29,6 +31,11 @@ function handleSubmit(e) {
 }
 
 function removeInput() {
-  count--;
-  console.log("remove");
+  if (count > 1) {
+    let lastDiv = document.getElementById(`newDiv-${count}`);
+
+    lastDiv.parentElement.removeChild(lastDiv);
+    count--;
+  }
+  console.log("remove", count);
 }

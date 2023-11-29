@@ -6,3 +6,4 @@
 Homework
 array methods -> names
 object methods -> names
+string methods -> names

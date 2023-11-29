@@ -2,6 +2,8 @@
 
 // import { sayHello } from "./myModule.js"
 
-import { add, sayHello } from "./myFunc.js";
+import { sayHello } from "./myFunc.js";
 
 sayHello(); // This will print "Hello!"
+
+document.getElementById("");
