@@ -4,15 +4,31 @@ const NavbarComponent = () => {
   return (
     <>
       <div style={navbarStyle}>
-        <div style={titleStyle}>WazirX</div>
+        <Link to={"/"} style={linkStyle}>
+          <div style={titleStyle}>Small Comps 🚀</div>
+        </Link>
+
         <div style={menuContainerStyle}>
-          <Link to="/about">
+          <Link to="/todo" style={linkStyle}>
+            {" "}
+            <div style={menuItemStyle}>To Do </div>
+          </Link>
+
+          <Link to="/about" style={linkStyle}>
             {" "}
             <div style={menuItemStyle}>About </div>
           </Link>
 
-          <Link to="/contact">
+          <Link to="/contact" style={linkStyle}>
             <div style={menuItemStyle}>Contact</div>
+          </Link>
+
+          <Link to="/counter" style={linkStyle}>
+            <div style={menuItemStyle}>Counter</div>
+          </Link>
+
+          <Link to="/mui-learn" style={linkStyle}>
+            <div style={menuItemStyle}>MuiComponent</div>
           </Link>
           {/* <div style={menuItemStyle}></div> */}
         </div>
@@ -21,6 +37,7 @@ const NavbarComponent = () => {
   );
 };
 
+const linkStyle = { textDecoration: "none", color: "inherit" };
 const navbarStyle = {
   display: "flex",
   justifyContent: "space-between",

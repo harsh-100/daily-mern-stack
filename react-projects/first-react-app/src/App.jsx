@@ -7,6 +7,9 @@ import Counter from "./components/counter";
 import Headers from "./components/Header";
 import HomePage from "./prepare/homeComp";
 import HomePageComponent from "./components/homePage";
+import LoginPage from "./components/loginPage";
+import MuiComponent from "./components/muiComponent";
+import NavbarComponent from "./components/navbar";
 import Timer from "./components/learn-useEffect";
 // import TodoComponent from "./prepare/todo-with-chechbox";
 import TodoComponent from "./components/todoComponent";
@@ -36,18 +39,23 @@ function AppComponent() {
   return (
     <>
       <BrowserRouter>
+        <NavbarComponent />
+        {/* <MuiComponent /> */}
         <Routes>
-          <Route path="/" element={<HomePageComponent name={"Home page"} />} />
+          <Route path="/" element={<LoginPage />} />
 
           <Route
             path="/about"
-            element={<HomePageComponent name={"About page"} />}
+            element={<HomePageComponent name={"About page"} age={14} />}
           />
 
           <Route
             path="/contact"
             element={<HomePageComponent name={"Contact page"} />}
           />
+          <Route path="/counter" element={<Counter />} />
+          <Route path="/todo" element={<TodoComponent />} />
+          <Route path="/mui-learn" element={<MuiComponent />} />
         </Routes>
       </BrowserRouter>
 

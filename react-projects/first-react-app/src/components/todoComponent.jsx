@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import styles from "../styles/todo.module.css";
+
 const TodoComponent = () => {
   const initialValue = JSON.parse(localStorage.getItem("user_task_array")) || [
     { text: "Go to Market", complete: false },
@@ -51,35 +53,37 @@ const TodoComponent = () => {
   }
   return (
     <>
-      <h1>My TO Do app:</h1>
-      <input
-        type="text"
-        placeholder="Add item here ..."
-        onChange={handleChange}
-        value={item}
-      />
-      <button onClick={handleAddTask}>Add</button>
-      <ul>
-        {myTask.map((eachValue, index) => (
-          <li>
-            <input
-              type="checkbox"
-              checked={eachValue.complete}
-              onChange={() => {
-                handleCheckbox(index);
-              }}
-            />
-            <span
-              style={{
-                textDecoration: eachValue.complete ? "line-through" : "",
-              }}
-            >
-              {eachValue.text}
-            </span>
-          </li>
-        ))}
-      </ul>
-      Active TODO item : {activeValue}
+      <div className={styles.container}>
+        <h1 className={styles.heading}>My TO Do app:</h1>
+        <input
+          type="text"
+          placeholder="Add item here ..."
+          onChange={handleChange}
+          value={item}
+        />
+        <button onClick={handleAddTask}>Add</button>
+        <ul>
+          {myTask.map((eachValue, index) => (
+            <li>
+              <input
+                type="checkbox"
+                checked={eachValue.complete}
+                onChange={() => {
+                  handleCheckbox(index);
+                }}
+              />
+              <span
+                style={{
+                  textDecoration: eachValue.complete ? "line-through" : "",
+                }}
+              >
+                {eachValue.text}
+              </span>
+            </li>
+          ))}
+        </ul>
+        Active TODO item : {activeValue}
+      </div>
     </>
   );
 };
