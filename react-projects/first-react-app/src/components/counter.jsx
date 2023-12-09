@@ -1,41 +1,62 @@
-import NavbarComponent from "./navbar";
-import styles from "../styles/Counter.module.css";
-import { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
-const Counter = () => {
-  //   let count = 0;
+// it returns a memoized value
+// it is used to improve the performance of react app
+const LearnUseMemo = () => {
+  const [myNum, setMyNum] = useState(0);
+  const [show, setShow] = useState(false);
 
-  let [count, setCount] = useState(0);
+  const [newState, setNewState] = useState(0);
 
-  function handleAddClick() {
-    if (count < 10) {
-      setCount(count + 1);
-    }
+  const getValue = () => {
+    return setMyNum(myNum + 1);
+  };
+
+  // const callHimToGetHisNumber = (num) => {
+  //   console.log("🚀 ~ file: Memo.jsx ~ line 12 ~ countNumber ~ num", num);
+  //   for (let i = 0; i <= 1000000000; i++) {}
+  //   return num;
+  // };
+
+  // const checkData = callHimToGetHisNumber(myNum);
+  //   const checkData = useMemo(() => {
+  //     return callHimToGetHisNumber(myNum);
+  //   }, [myNum]);
+
+  // function changeValue() {
+  //   setShow(!show);
+  // }
+
+  function increaseTimeCount(value) {
+    console.log("Before calc");
+
+    for (let i = 0; i < 1000000000; i++) {}
+    console.log("After calc");
+    return value;
   }
-  function handleSubtractClick() {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  }
 
+  // useEffect(() => {
+  //   setNewState(increaseTimeCount(myNum));
+  // }, [myNum]);
+
+  // memorized value
+  let calculatedValue = useMemo(() => {
+    return increaseTimeCount(myNum);
+  }, [myNum]);
+
+  // let calculatedValue = increaseTimeCount(myNum);
   return (
     <>
-      <div className={styles.container}>
-        <h1 className={styles.heading}>Counter Component</h1>
+      <button onClick={getValue} style={{ backgroundColor: "red" }}>
+        Counter
+      </button>
+      <p> My new number : {calculatedValue} </p>
 
-        <h3>Count : {count} </h3>
-
-        {count == 0 ? <p>You have reached the last limit sir 😇</p> : <></>}
-        {count == 10 ? <p>Hurray! You have reached the Final sir 🎉</p> : <></>}
-
-        {count < 10 && <button onClick={handleAddClick}>Add Count</button>}
-
-        {count > 0 && (
-          <button onClick={handleSubtractClick}>Subtract Count</button>
-        )}
-      </div>
+      <button onClick={() => setShow(!show)}>
+        {show ? "You clicked me" : "Click me plz"}
+      </button>
     </>
   );
 };
 
-export default Counter;
+export default LearnUseMemo;

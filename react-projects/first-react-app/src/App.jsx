@@ -10,11 +10,13 @@ import HomePageComponent from "./components/homePage";
 import LoginPage from "./components/loginPage";
 import MuiComponent from "./components/muiComponent";
 import NavbarComponent from "./components/navbar";
+import ShoppingList from "./components/newUseMemo";
 import Timer from "./components/learn-useEffect";
 // import TodoComponent from "./prepare/todo-with-chechbox";
 import TodoComponent from "./components/todoComponent";
 import TodoComponentWithLocalstorage from "./prepare/todo-with-localstorage";
 import UserCard from "./components/userCard";
+import WeatherNewComp from "./components/weatherNewComp";
 
 function AppComponent() {
   var userData = [
@@ -46,7 +48,8 @@ function AppComponent() {
 
           <Route
             path="/about"
-            element={<HomePageComponent name={"About page"} age={14} />}
+            // element={<HomePageComponent name={"About page"} age={14} />}
+            element={<ShoppingList />}
           />
 
           <Route
@@ -56,6 +59,7 @@ function AppComponent() {
           <Route path="/counter" element={<Counter />} />
           <Route path="/todo" element={<TodoComponent />} />
           <Route path="/mui-learn" element={<MuiComponent />} />
+          <Route path="/weather" element={<WeatherNewComp />} />
         </Routes>
       </BrowserRouter>
 
