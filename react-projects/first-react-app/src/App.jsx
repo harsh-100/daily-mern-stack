@@ -16,6 +16,10 @@ import Timer from "./components/learn-useEffect";
 import TodoComponent from "./components/todoComponent";
 import TodoComponentWithLocalstorage from "./prepare/todo-with-localstorage";
 import UserCard from "./components/userCard";
+import UserDetails from "./components/dynamicRoute/userDetails";
+import UserList from "./components/dynamicRoute/userList";
+// import UserDetails from "./prepare/dynamicRoute/userDetails";
+// import UserList from "./prepare/dynamicRoute/userList";
 import WeatherNewComp from "./components/weatherNewComp";
 
 function AppComponent() {
@@ -60,6 +64,11 @@ function AppComponent() {
           <Route path="/todo" element={<TodoComponent />} />
           <Route path="/mui-learn" element={<MuiComponent />} />
           <Route path="/weather" element={<WeatherNewComp />} />
+
+          <Route path="/user" element={<UserList />} />
+          <Route path="/user/:userId" element={<UserDetails />} />
+
+          {/* <Route path="/user/:userId" element={<UserDetails />} /> */}
         </Routes>
       </BrowserRouter>
 
