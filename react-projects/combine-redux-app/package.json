@@ -1,9 +1,8 @@
 {
-  "name": "redux-app",
+  "name": "combine-redux-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

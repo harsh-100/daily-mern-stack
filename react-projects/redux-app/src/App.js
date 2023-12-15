@@ -1,6 +1,8 @@
+import ColorInput from "./component/colorInput";
 import Counter from "./component/counter";
 import GetValue from "./component/getValue";
 import NewCounter from "./component/newCounter";
+import NumberInput from "./component/numberInput";
 import { Provider } from "react-redux";
 // src/App.js
 import React from "react";
@@ -14,8 +16,11 @@ const App = () => {
       <div>
         {/* dispatch(function calling ) , 
         useSelector(give the hold of value in store )  */}
-        <NewCounter />
-        <GetValue />
+        {/* <NewCounter />
+        <GetValue /> */}
+
+        <ColorInput />
+        <NumberInput />
       </div>
     </Provider>
   );
