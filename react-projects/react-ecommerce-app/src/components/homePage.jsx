@@ -21,8 +21,6 @@ const HomePage = () => {
   }, []);
   return (
     <>
-      <Navbar />
-
       <ProductList productsData={productsData} />
     </>
   );

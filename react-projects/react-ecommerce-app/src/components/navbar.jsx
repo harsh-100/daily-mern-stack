@@ -15,6 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
@@ -135,8 +136,8 @@ export default function Navbar() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+          <Badge badgeContent={19} color="error">
+            <ShoppingCartIcon />
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -202,8 +203,8 @@ export default function Navbar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+              <Badge badgeContent={19} color="error">
+                <ShoppingCartIcon />
               </Badge>
             </IconButton>
             <IconButton
