@@ -27,7 +27,7 @@ export default function CardComponent({ product }) {
         <CardMedia
           sx={{ height: 140 }}
           image={product.image}
-          title="green iguana"
+          title={product.title}
           style={{ backgroundSize: "contain" }}
         />
         <CardContent>

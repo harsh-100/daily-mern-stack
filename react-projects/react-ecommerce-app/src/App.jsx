@@ -2,6 +2,7 @@ import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import CartPage from "./components/cartPage";
 import DemoComponent from "./components/demo";
 import HomePage from "./components/homePage";
 import LoginPage from "./components/loginPage";
@@ -20,9 +21,10 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/product/:productId" element={<ProductPage />} />
+            <Route path="/cart" element={<CartPage />} />
 
             {/* put this route at the bottom  */}
-            <Route path="/*" element={<DemoComponent />} />
+            {/* <Route path="/*" element={<DemoComponent />} /> */}
           </Routes>
         </BrowserRouter>
       </Provider>

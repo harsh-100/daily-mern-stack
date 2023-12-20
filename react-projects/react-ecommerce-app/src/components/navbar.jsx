@@ -164,10 +164,10 @@ export default function Navbar() {
   );
   const cartItems = useSelector((state) => state.cart.products);
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1 }} bgcolor={"seagreen"}>
+      <AppBar position="static" style={{ background: "#2E3B55" }}>
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -175,15 +175,17 @@ export default function Navbar() {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            MUI
-          </Typography>
+          </IconButton> */}
+          <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
+            >
+              E-Commerce
+            </Typography>
+          </Link>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -204,10 +206,13 @@ export default function Navbar() {
                 <MailIcon />
               </Badge>
             </IconButton>
+
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              component={Link}
+              to={"/cart"}
             >
               {/* cart item */}
               <Badge badgeContent={cartItems.length} color="error">
