@@ -13,7 +13,6 @@ const HomePage = () => {
 
     const result = await res.json();
     setProductsData(result);
-    console.log(result);
   };
 
   useEffect(() => {
