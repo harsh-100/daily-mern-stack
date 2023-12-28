@@ -1,0 +1,3 @@
+- installing postman
+- what is postman , why do we need it ?
+- let's make basic request api's

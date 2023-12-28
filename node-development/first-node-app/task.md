@@ -1,7 +1,9 @@
 Today we need to understand
 
 o What is backend?
+
 o Why it is used?
+
 o Introduction of NodeJS.
 o Understanding nodejs
 o What nodejs?
