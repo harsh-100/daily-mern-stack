@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NavbarComponent = () => {
+const NavbarComponent = ({ children }) => {
   return (
     <>
       <div style={navbarStyle}>
@@ -30,6 +30,8 @@ const NavbarComponent = () => {
           <Link to="/mui-learn" style={linkStyle}>
             <div style={menuItemStyle}>MuiComponent</div>
           </Link>
+
+          {children}
           {/* <div style={menuItemStyle}></div> */}
         </div>
       </div>

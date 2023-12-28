@@ -45,7 +45,10 @@ function AppComponent() {
   return (
     <>
       <BrowserRouter>
-        <NavbarComponent />
+        {/* <NavbarComponent>
+
+          <h1>harsh</h1>
+        </NavbarComponent> */}
         {/* <MuiComponent /> */}
         <Routes>
           <Route path="/" element={<LoginPage />} />
