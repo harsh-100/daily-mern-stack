@@ -1,9 +1,9 @@
 const users = [
-  { id: 1, name: "John" },
-  { id: 2, name: "Joker" },
-  { id: 3, name: "Rohan" },
-  { id: 4, name: "Sohan" },
-  { id: 5, name: "Mohan" },
+  { id: 1, name: "John", email: "johan@gmail.com" },
+  { id: 2, name: "Joker", email: "johan@gmail.com" },
+  { id: 3, name: "Rohan", email: "johan@gmail.com" },
+  { id: 4, name: "Sohan", email: "johan@gmail.com" },
+  { id: 5, name: "Mohan", email: "johan@gmail.com" },
 ];
 
 const getAllUsers = (req, res) => {
@@ -54,6 +54,7 @@ const deleteUserById = (req, res) => {
     res.send("Please give proper id bhai ");
   }
 };
+
 module.exports = {
   getAllUsers,
   getUserById,
