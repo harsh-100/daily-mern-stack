@@ -6,6 +6,7 @@ const {
   updateUserData,
   deleteUserById,
 } = require("../controller/userController");
+// const UserModel = require("../model/userModel");
 
 const router = express.Router();
 

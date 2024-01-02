@@ -1,3 +1,5 @@
+const UserModel = require("../model/userModel");
+
 const users = [
   { id: 1, name: "John", email: "johan@gmail.com" },
   { id: 2, name: "Joker", email: "johan@gmail.com" },
@@ -6,52 +8,86 @@ const users = [
   { id: 5, name: "Mohan", email: "johan@gmail.com" },
 ];
 
-const getAllUsers = (req, res) => {
-  res.send(users);
+const getAllUsers = async (req, res) => {
+  let userData = await UserModel.find();
+
+  console.log("The length of userData is ", userData.length);
+  res.send(userData);
 };
 
-const getUserById = (req, res) => {
-  const userId = parseInt(req.params.userId);
+const getUserById = async (req, res) => {
+  try {
+    const userId = req.params.userId;
 
-  let userData = users.find((eachObj) => eachObj.id == userId);
+    // let userData = users.find((eachObj) => eachObj.id == userId);
+    let userData = await UserModel.findById(userId);
 
-  if (userData) {
-    res.status(200).send(userData);
-  } else {
-    res.status(404).send("Please Provide correct user Id");
+    if (userData) {
+      res.status(200).send(userData);
+    } else {
+      res.status(404).send("Please Provide correct user Id");
+    }
+  } catch (error) {
+    res.status(404).send(error);
   }
 };
 
-const addNewUser = (req, res) => {
-  const newItem = req.body;
-  newItem.id = users.length + 1;
-  users.push(newItem);
-  res.status(201).send(newItem);
-};
+const addNewUser = async (req, res) => {
+  try {
+    const newItem = req.body;
 
-const updateUserData = (req, res) => {
-  const userId = parseInt(req.params.userId);
-  const userData = req.body;
+    let newUser = new UserModel({
+      name: newItem.name,
+      email: newItem.email,
+      age: newItem.age,
+      title: newItem.title,
+    });
 
-  let index = users.findIndex((eachObj) => eachObj.id == userId);
+    await newUser.save();
+    // newItem.id = users.length + 1;
+    // users.push(newItem);
 
-  if (index != -1) {
-    users[index].name = userData.name;
-    res.send(users[index]);
-  } else {
-    res.send("Please give proper id bhai ");
+    res.status(201).send(newUser);
+  } catch (error) {
+    res.status(404).send(error.message);
   }
 };
 
-const deleteUserById = (req, res) => {
-  const userId = parseInt(req.params.userId);
-  let index = users.findIndex((eachObj) => eachObj.id == userId);
+const updateUserData = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const userData = req.body;
 
-  if (index != -1) {
-    let userDeleted = users.splice(index, 1);
-    res.send(userDeleted);
-  } else {
-    res.send("Please give proper id bhai ");
+    // let index = users.findIndex((eachObj) => eachObj.id == userId);
+
+    let updatedUser = await UserModel.findByIdAndUpdate(userId, userData);
+    if (updatedUser) {
+      // users[index].name = userData.name;
+      res.send(updatedUser);
+    } else {
+      res.send("Please give proper id bhai ");
+    }
+  } catch (error) {
+    res.status(404).send(error);
+  }
+};
+
+const deleteUserById = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+
+    let userDeleted = await UserModel.findByIdAndDelete(userId);
+
+    // let index = users.findIndex((eachObj) => eachObj.id == userId);
+
+    if (userDeleted) {
+      // let userDeleted = users.splice(index, 1);
+      res.send(userDeleted);
+    } else {
+      res.send("Please give proper id bhai ");
+    }
+  } catch (error) {
+    res.status(404).send(error);
   }
 };
 

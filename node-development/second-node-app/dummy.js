@@ -1,65 +1,75 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const router = express.Router();
+const UserModel = require('../models/userModel');
 
-const app = express();
-const port = 3000;
-
-app.use(bodyParser.json());
-
-// Sample data stored in-memory
-let items = [
-  { id: 1, name: 'Item 1' },
-  { id: 2, name: 'Item 2' },
-  { id: 3, name: 'Item 3' },
-];
-
-// Get all items
-app.get('/api/items', (req, res) => {
-  res.json(items);
-});
-
-// Get a single item by ID
-app.get('/api/items/:id', (req, res) => {
-  const itemId = parseInt(req.params.id);
-  const item = items.find((i) => i.id === itemId);
-
-  if (item) {
-    res.json(item);
-  } else {
-    res.status(404).json({ message: 'Item not found' });
+// Create a new user
+router.post('/users', async (req, res) => {
+  try {
+    const { username, email, age } = req.body;
+    const newUser = new UserModel({ username, email, age });
+    await newUser.save();
+    res.json(newUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error creating user' });
   }
 });
 
-// Create a new item
-app.post('/api/items', (req, res) => {
-  const newItem = req.body;
-  newItem.id = items.length + 1;
-  items.push(newItem);
-
-  res.status(201).json(newItem);
-});
-
-// Update an existing item by ID
-app.put('/api/items/:id', (req, res) => {
-  const itemId = parseInt(req.params.id);
-  const updatedItem = req.body;
-  const index = items.findIndex((i) => i.id === itemId);
-
-  if (index !== -1) {
-    items[index] = { ...items[index], ...updatedItem };
-    res.json(items[index]);
-  } else {
-    res.status(404).json({ message: 'Item not found' });
+// Get all users
+router.get('/users', async (req, res) => {
+  try {
+    const users = await UserModel.find();
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error getting users' });
   }
 });
 
-// Delete an item by ID
-app.delete('/api/items/:id', (req, res) => {
-  const itemId = parseInt(req.params.id);
-  items = items.filter((i) => i.id !== itemId);
-  res.json({ message: 'Item deleted successfully' });
+// Get a specific user by ID
+router.get('/users/:id', async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error getting user' });
+  }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+// Update a user by ID
+router.put('/users/:id', async (req, res) => {
+  try {
+    const updatedUser = await UserModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json(updatedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error updating user' });
+  }
 });
+
+// Delete a user by ID
+router.delete('/users/:id', async (req, res) => {
+  try {
+    const deletedUser = await UserModel.findByIdAndDelete(req.params.id);
+    if (!deletedUser) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json(deletedUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error deleting user' });
+  }
+});
+
+module.exports = router;
