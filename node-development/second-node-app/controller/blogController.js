@@ -5,14 +5,6 @@ const getAllBlogs = async (req, res) => {
   try {
     let blogData = await BlogsModel.find().populate("userId");
 
-    // let newData = await blogData.map(async (eachObj) => {
-    //   let data = await UserModel.findById(eachObj.userId);
-
-    //   eachObj.userData = data;
-
-    //   return eachObj;
-    // });
-
     res.send(blogData);
   } catch (error) {
     res.status(404).send(error);

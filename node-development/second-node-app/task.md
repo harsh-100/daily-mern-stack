@@ -43,3 +43,155 @@ birthDate: { type: Date, required: true },
 <!-- please read this  -->
 
 [Mongoose Populate method](https://mongoosejs.com/docs/populate.html#populate-virtuals)
+
+---
+
+Let's practice
+
+- o Match
+  o Group
+  o Sort
+  o lookup
+  - project
+
+```
+app.get('/users-average-age', async (req, res) => {
+  try {
+    const result = await UserModel.aggregate([
+      {
+        $group: {
+          _id: '$_id',
+          user: { $first: '$$ROOT' },
+          averageAge: { $avg: '$age' }
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          user: 1,
+          averageAge: 1
+        }
+      }
+    ]);
+
+    res.json(result);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+```
+
+```
+app.get('/blogs-count-per-genre', async (req, res) => {
+  try {
+    const result = await BlogsModel.aggregate([
+      {
+        $group: {
+          _id: '$genre',
+          blogCount: { $sum: 1 }
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          genre: '$_id',
+          blogCount: 1
+        }
+      }
+    ]);
+
+    res.json(result);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+```
+
+```
+app.get('/users-with-blogs-count', async (req, res) => {
+  try {
+    const result = await BlogsModel.aggregate([
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'userId',
+          foreignField: '_id',
+          as: 'userDetails'
+        }
+      },
+      {
+        $group: {
+          _id: '$userId',
+          user: { $first: '$userDetails' }, // Assuming a user has the same details across blogs
+          blogCount: { $sum: 1 }
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          user: 1,
+          blogCount: 1
+        }
+      }
+    ]);
+
+    res.json(result);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+```
+
+```js
+//solve 1
+let blogData = await BlogsModel.find();
+
+let newData = [];
+
+for (const eachObj of blogData) {
+  let data = await UserModel.findById(eachObj.userId).lean();
+
+  // Create a new object with the original data and additional userData
+  newData.push({
+    ...eachObj.toObject(), // Convert eachObj to a plain JavaScript object
+    userData: data,
+  });
+}
+
+res.send(newData);
+
+// solve 2
+let blogData = await BlogsModel.find();
+
+let newData = await Promise.all(
+  blogData.map(async (eachObj) => {
+    let data = await UserModel.findById(eachObj.userId).lean();
+
+    // Create a new object with the original data and additional userData
+    return {
+      ...eachObj.toObject(), // Convert eachObj to a plain JavaScript object
+      userData: data,
+    };
+  })
+);
+
+res.send(newData);
+
+// solve 3
+// or we can use the new array in map also and just push it
+```
+
+<!-- Api in blog  -->
+
+- update a blog with id
+- delete a blog with id
+- add a blog
+- get all blogs
+- get blog by id (with blog id)
+- get blog with userID (with userId)

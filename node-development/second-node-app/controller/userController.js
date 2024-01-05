@@ -39,8 +39,9 @@ const addNewUser = async (req, res) => {
     let newUser = new UserModel({
       name: newItem.name,
       email: newItem.email,
+      password: newItem.password,
       age: newItem.age,
-      title: newItem.title,
+      phone: newItem.phone,
     });
 
     await newUser.save();
@@ -51,6 +52,30 @@ const addNewUser = async (req, res) => {
   } catch (error) {
     res.status(404).send(error.message);
   }
+};
+
+const userLogin = async (req, res) => {
+  let userEntry = req.body;
+
+  let userData = await UserModel.find({ email: userEntry.email });
+  console.log(
+    "🚀 ~ file: userController.js:65 ~ userLogin ~ userData:",
+    userData
+  );
+
+  if (userData.length > 0) {
+    let databasePassword = userData[0].password;
+    if (databasePassword == userEntry.password) {
+      // generate jwt token
+      res.send("Hurray ");
+    } else {
+      res.send("invalid credentials");
+    }
+  } else {
+    res.send("User does not exist");
+  }
+
+  // res.send("login");
 };
 
 const updateUserData = async (req, res) => {
@@ -97,4 +122,5 @@ module.exports = {
   addNewUser,
   updateUserData,
   deleteUserById,
+  userLogin,
 };
