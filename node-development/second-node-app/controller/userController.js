@@ -1,5 +1,7 @@
 const UserModel = require("../model/userModel");
 
+const jwt = require("jsonwebtoken");
+
 const users = [
   { id: 1, name: "John", email: "johan@gmail.com" },
   { id: 2, name: "Joker", email: "johan@gmail.com" },
@@ -65,9 +67,24 @@ const userLogin = async (req, res) => {
 
   if (userData.length > 0) {
     let databasePassword = userData[0].password;
+
+    console.log(userData[0]);
     if (databasePassword == userEntry.password) {
       // generate jwt token
-      res.send("Hurray ");
+
+      let token = jwt.sign(
+        {
+          data: {
+            _id: userData[0]._id,
+            name: userData[0].name,
+            email: userData[0].email,
+          },
+        },
+        process.env.JWT_SECRET_KEY,
+        { expiresIn: 60 * 60 }
+      );
+
+      res.send({ token });
     } else {
       res.send("invalid credentials");
     }

@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const blogRoutes = require("./routes/blogRoutes");
 const dashboardRoutes = require("./routes/dashboard");
-
+const { authorizationCheck } = require("./middlewares/auth");
+require("dotenv").config();
 // const UserModel = require("./model/userModel");
 const app = express();
 
@@ -32,16 +33,6 @@ app.use(bodyParser.json());
 
 app.use("/user", userRoutes);
 app.use("/blog", blogRoutes);
-
-const authorizationCheck = (req, res, next) => {
-  let token = req.headers.authorization;
-
-  if (token == 12345) {
-    next();
-  } else {
-    res.send("Not authorized");
-  }
-};
 
 app.use("/dashboard", authorizationCheck, dashboardRoutes);
 

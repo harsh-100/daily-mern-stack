@@ -5,10 +5,11 @@ const { Schema } = mongoose;
 const userSchema = new Schema(
   {
     name: String,
-    email: String,
+    email: { type: String },
     password: String,
     phone: Number,
     age: Number,
+    isAdmin: { type: Boolean, default: false },
   },
   { strict: false }
 );

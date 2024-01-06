@@ -195,3 +195,15 @@ res.send(newData);
 - get all blogs
 - get blog by id (with blog id)
 - get blog with userID (with userId)
+
+<!-- what to do  -->
+
+- generate token with jwt
+- verify token for dashboard route
+
+- make folder for middleware
+
+task :
+
+- make route for admin only can access data using the token (must)
+- secure password using bcrypt (optional )
