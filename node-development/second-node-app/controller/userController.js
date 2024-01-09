@@ -1,4 +1,6 @@
 const UserModel = require("../model/userModel");
+const bcrypt = require("bcrypt");
+const _ = require("lodash");
 
 const jwt = require("jsonwebtoken");
 
@@ -13,8 +15,12 @@ const users = [
 const getAllUsers = async (req, res) => {
   let userData = await UserModel.find();
 
+  let filteredData = _.filter(userData, function (item) {
+    return item.isAdmin;
+  });
+
   console.log("The length of userData is ", userData.length);
-  res.send(userData);
+  res.send(filteredData);
 };
 
 const getUserById = async (req, res) => {
@@ -38,12 +44,27 @@ const addNewUser = async (req, res) => {
   try {
     const newItem = req.body;
 
+    let isAdmin;
+
+    if (newItem.isAdmin) {
+      isAdmin = true;
+    } else {
+      isAdmin = false;
+    }
+
+    // logic for bcrypt
+
+    let saltRounds = 10;
+    // let hashedPassword;
+    let hashedPassword = await bcrypt.hash(newItem.password, saltRounds);
+
     let newUser = new UserModel({
       name: newItem.name,
       email: newItem.email,
-      password: newItem.password,
+      password: hashedPassword,
       age: newItem.age,
       phone: newItem.phone,
+      isAdmin: isAdmin,
     });
 
     await newUser.save();
@@ -74,11 +95,9 @@ const userLogin = async (req, res) => {
 
       let token = jwt.sign(
         {
-          data: {
-            _id: userData[0]._id,
-            name: userData[0].name,
-            email: userData[0].email,
-          },
+          _id: userData[0]._id,
+          name: userData[0].name,
+          email: userData[0].email,
         },
         process.env.JWT_SECRET_KEY,
         { expiresIn: 60 * 60 }

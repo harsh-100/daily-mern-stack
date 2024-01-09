@@ -3,11 +3,15 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const blogRoutes = require("./routes/blogRoutes");
+const morgan = require("morgan");
 const dashboardRoutes = require("./routes/dashboard");
 const { authorizationCheck } = require("./middlewares/auth");
+
 require("dotenv").config();
 // const UserModel = require("./model/userModel");
 const app = express();
+// // Use Morgan middleware for logging
+app.use(morgan("dev"));
 
 // const UserModel = require("./model/userModel");
 
@@ -35,6 +39,7 @@ app.use("/user", userRoutes);
 app.use("/blog", blogRoutes);
 
 app.use("/dashboard", authorizationCheck, dashboardRoutes);
+// app.use("/admin", authorizationCheck,roleGuard, adminRoutes);
 
 app.listen(port, () => {
   console.log(`The server is running on port ${port}`);
