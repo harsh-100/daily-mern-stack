@@ -20,7 +20,14 @@ const getAllUsers = async (req, res) => {
   });
 
   console.log("The length of userData is ", userData.length);
-  res.send(filteredData);
+
+  let responseData = {
+    message: "User data  get successfully",
+    status: 200,
+    data: filteredData,
+  };
+
+  res.send(responseData);
 };
 
 const getUserById = async (req, res) => {
@@ -57,6 +64,11 @@ const addNewUser = async (req, res) => {
     let saltRounds = 10;
     // let hashedPassword;
     let hashedPassword = await bcrypt.hash(newItem.password, saltRounds);
+    console.log(
+      "🚀 ~ addNewUser ~ hashedPassword:",
+      hashedPassword,
+      newItem.password
+    );
 
     let newUser = new UserModel({
       name: newItem.name,
@@ -81,18 +93,15 @@ const userLogin = async (req, res) => {
   let userEntry = req.body;
 
   let userData = await UserModel.find({ email: userEntry.email });
-  console.log(
-    "🚀 ~ file: userController.js:65 ~ userLogin ~ userData:",
-    userData
-  );
 
   if (userData.length > 0) {
     let databasePassword = userData[0].password;
 
     console.log(userData[0]);
-    if (databasePassword == userEntry.password) {
-      // generate jwt token
 
+    let isPassword = await bcrypt.compare(userEntry.password, databasePassword);
+    if (isPassword) {
+      // generate jwt token
       let token = jwt.sign(
         {
           _id: userData[0]._id,
