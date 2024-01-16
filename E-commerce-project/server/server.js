@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const userRoutes = require("./routes/userRoutes");
+const mainRoute = require("./routes");
 
 const connectDb = require("./config/db");
 
@@ -11,7 +11,9 @@ connectDb();
 let port = process.env.PORT || 5001;
 
 app.use(bodyParser.json());
-app.use("/user", userRoutes);
+app.use("/", mainRoute);
+
+// app.use('/api/product',)
 
 app.listen(port, () => {
   console.log(`The server is running on port ${port}`);

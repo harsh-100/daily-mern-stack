@@ -2,8 +2,13 @@ const UserModel = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const getAllUser = (req, res) => {
-  res.send("User route");
+const getAllUser = async (req, res) => {
+  try {
+    let usersData = await UserModel.find();
+    res.send(usersData);
+  } catch (error) {
+    res.send(error.message);
+  }
 };
 
 const addUser = async (req, res) => {
@@ -90,4 +95,35 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { getAllUser, addUser, loginUser };
+const updateUser = async (req, res) => {
+  try {
+    console.log("Req", req.userId);
+
+    let userId = req.params.userId;
+
+    let enteredData = req.body;
+
+    let updateUser = await UserModel.findByIdAndUpdate(userId, enteredData, {
+      new: true,
+    });
+
+    res.send(updateUser);
+  } catch (error) {
+    let message;
+
+    if (error.message.includes("Cast to ObjectId failed for value")) {
+      message = "Please Provide Correct id";
+    } else {
+      message = error.message;
+    }
+
+    let messageData = {
+      message: message,
+      status: 404,
+      data: error,
+    };
+
+    res.status(404).send(messageData);
+  }
+};
+module.exports = { getAllUser, addUser, loginUser, updateUser };
