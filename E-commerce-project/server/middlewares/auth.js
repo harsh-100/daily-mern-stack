@@ -5,7 +5,8 @@ const authCheck = async (req, res, next) => {
     let token = req.headers.authorization;
 
     if (!token) {
-      res.send("Please Provide token");
+      console.log("🚀 ~ authCheck ~ token:", token);
+      res.json("Please Provide token");
       return;
     }
     let result = await jwt.decode(token, "secret");
@@ -20,7 +21,7 @@ const authCheck = async (req, res, next) => {
 
     next();
   } catch (error) {
-    res.send(error.message);
+    res.json(error.message);
   }
 };
 

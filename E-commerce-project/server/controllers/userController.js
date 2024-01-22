@@ -50,7 +50,6 @@ const loginUser = async (req, res) => {
     let userLoginData = req.body;
 
     let userData = await UserModel.findOne({ email: userLoginData.email });
-    console.log("🚀 ~ loginUser ~ userData:", userData);
 
     if (userData) {
       // check password
