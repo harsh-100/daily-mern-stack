@@ -64,6 +64,32 @@ carts
 ├── _id
 ├── userId
 ├── products (array of products in the cart)
+
+[{productId:schema.objectId , ref:"product" , quantity:Number}]
+userId : joker
+[
+  {productId:123123,quantity : 3},
+  {productId:4545,quantity : 2},
+  {productId:23423,quantity : 2},
+  {productId:945,quantity : 76},
+  {productId:34234,quantity : 2},
+
+ ]
+
+product -> jeans (id-> 456 , quantity : 2)
+
+  userId : joker
+  items : []
+
+
+newProduct =  {productId : 456 , quanity : 2}
+
+items.push(newProduct)
+
+cart.save()
+
+
+
 └── ...
 ```
 

@@ -13,7 +13,11 @@ const router = express.Router();
 
 // localhost:5000/api/product
 // s3 -> base64 ->
-router.get("/", authCheck, roleGuard(["seller", "admin"]), getProducts);
+router.get(
+  "/",
+  //  authCheck, roleGuard(["seller", "admin"]),
+  getProducts
+);
 router.post(
   "/:productId",
   // authCheck,

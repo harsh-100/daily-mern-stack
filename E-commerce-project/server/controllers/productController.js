@@ -3,6 +3,7 @@ const ProductModel = require("../models/productModel");
 const getProducts = async (req, res) => {
   try {
     const products = await ProductModel.find();
+    console.log("🚀 ~ getProducts ~ products:", products);
     res.status(200).json(products);
   } catch (error) {
     res.status(404).send("Internal server error ");
