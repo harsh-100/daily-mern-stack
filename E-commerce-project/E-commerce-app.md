@@ -1,3 +1,9 @@
+Task Today :
+
+- Just apply the old components
+- cardComp , productList , homePage , loginPage , browserRouter
+- then lets do the login stuff with js cookie and discuss the httponly cookie
+
 Structure :
 
 users - > user, seller , admin

@@ -15,11 +15,12 @@ const router = express.Router();
 // s3 -> base64 ->
 router.get(
   "/",
-  //  authCheck, roleGuard(["seller", "admin"]),
+  authCheck,
+  //  roleGuard(["seller", "admin"]),
   getProducts
 );
 router.post(
-  "/:productId",
+  "/",
   // authCheck,
   // roleGuard("seller"),
   upload.single("image"),

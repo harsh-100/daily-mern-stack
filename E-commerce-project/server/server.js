@@ -11,6 +11,7 @@ connectDb();
 let port = process.env.PORT || 5001;
 
 app.use(bodyParser.json());
+
 app.use("/", mainRoute);
 
 // app.use('/api/product',)

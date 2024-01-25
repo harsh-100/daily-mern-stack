@@ -2,8 +2,9 @@ const ProductModel = require("../models/productModel");
 
 const getProducts = async (req, res) => {
   try {
+    console.log("Testing api cehck");
     const products = await ProductModel.find();
-    console.log("🚀 ~ getProducts ~ products:", products);
+    // console.log("🚀 ~ getProducts ~ products:", products);
     res.status(200).json(products);
   } catch (error) {
     res.status(404).send("Internal server error ");
@@ -21,7 +22,7 @@ const addProduct = async (req, res) => {
     console.log("🚀 ~ addProduct ~ data:", data);
 
     let newProductObj = { ...data, imageUrl: req.file.filename };
-    const newProducts = await ProductModel.findByIdAndUpdate(newProductObj);
+    const newProducts = await ProductModel.create(newProductObj);
 
     res.json(newProducts);
   } catch (error) {

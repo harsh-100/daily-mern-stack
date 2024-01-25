@@ -79,10 +79,10 @@ const loginUser = async (req, res) => {
       } else {
         // send from here
 
-        res.send("Invalid Credentials");
+        res.status(201).json({ message: "Invalid Credentials" });
       }
     } else {
-      res.send("User does not exist");
+      res.status(201).json({ message: "User does not exist" });
     }
   } catch (error) {
     let messageData = {
