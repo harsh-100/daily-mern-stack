@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import Header from "./component/header";
 import HomePage from "./component/homePage";
 import LoginPage from "./component/loginPage";
+import RegisterForm from "./component/registerForm";
 import axios from "axios";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route element={<HomePage />} path="/" />
           <Route element={<LoginPage />} path="/login" />
+          <Route element={<RegisterForm />} path="/register" />
         </Routes>
       </BrowserRouter>
     </>

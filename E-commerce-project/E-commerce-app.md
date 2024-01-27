@@ -1,10 +1,52 @@
 Task Today :
 
-- Just apply the old components
-- cardComp , productList , homePage , loginPage , browserRouter
-- then lets do the login stuff with js cookie and discuss the httponly cookie
+- Make a register form (https://mui.com/material-ui/getting-started/templates/)
+- add appopriate links
+- add toast message (https://react-hot-toast.com/)
+- get role , other user info like email from login api
+- get the role of the user who is logged in (save role in local storage (secure localStorage))
+- show the items in navbar on the based of roles and make those pages available to those users only
 
-Structure :
+  Structure :
+
+  For Buyer:
+
+```md
+Home: Navigate to the home page.
+Shop: Explore and view available products.
+Cart: View and manage items in the shopping cart.
+Orders: Track and view order history.
+
+<!-- Wishlist: Save and manage favorite items for later. -->
+
+Profile: Access and edit personal information.
+```
+
+For Seller:
+
+```md
+Home: Navigate to the home page.
+Products: Manage and add new products.
+Orders: View and manage orders received.
+
+<!-- Inventory: Track stock levels and manage product availability. -->
+
+Profile: Access and edit seller information.
+```
+
+For Admin:
+
+```md
+Home: Navigate to the home page.
+Products: View and manage all products.
+Orders: Access and manage all orders.
+Users: Manage and view user accounts.
+
+<!-- Reports: Access sales and site analytics. -->
+<!-- Settings: Configure site settings. -->
+
+Profile: Access and edit admin information.
+```
 
 users - > user, seller , admin
 

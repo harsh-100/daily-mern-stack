@@ -69,10 +69,17 @@ const loginUser = async (req, res) => {
           { expiresIn: 60 * 60 }
         );
 
+        console.log("The infor", userData);
+
         let messageData = {
           message: "User Logged in successfully",
           status: 200,
-          data: { token },
+          data: {
+            token,
+            role: userData.role,
+            email: userData.email,
+            username: userData.username,
+          },
         };
 
         res.status(200).send(messageData);

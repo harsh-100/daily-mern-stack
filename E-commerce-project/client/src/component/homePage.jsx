@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Cookies from "js-cookie";
+import Header from "./header";
 import ProductList from "./productList";
 import axios from "axios";
 
@@ -29,6 +30,7 @@ const HomePage = () => {
   }, []);
   return (
     <>
+      <Header />
       <ProductList productsData={productsData} />
     </>
   );

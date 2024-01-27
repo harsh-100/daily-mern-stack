@@ -1,9 +1,9 @@
 import * as React from "react";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import toast, { Toaster } from "react-hot-toast";
 
 import Avatar from "@mui/material/Avatar";
-import { BACKEND_URL } from "../constants/routes";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
@@ -14,10 +14,10 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Paper from "@mui/material/Paper";
+import RowRadioButtonsGroup from "./common/radioButton";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
-import secureLocalStorage from "react-secure-storage";
 import { useNavigate } from "react-router-dom";
 
 // import { useDispatch } from "react-redux";
@@ -46,56 +46,52 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function LoginPage() {
+export default function RegisterForm() {
   // const dispatch = useDispatch();
   const navigate = useNavigate();
-  const dummyData = [
-    {
-      id: 12,
-      name: "harsh",
-      email: "harsh@gmail.com",
-      password: "Harsh123",
-    },
-    {
-      id: 13,
-      name: "harsh2",
-      email: "harsh2@gmail.com",
-      password: "Harsh123",
-    },
-    {
-      id: 14,
-      name: "harsh3",
-      email: "harsh3@gmail.com",
-      password: "Harsh123",
-    },
-  ];
+
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    try {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
 
-    console.log("The values are ", data.get("email"), data.get("password"));
+      console.log(
+        "The values are ",
+        data.get("email"),
+        data.get("password"),
+        data.get("username"),
+        data.get("role")
+      );
 
-    let response = await axios.post(`${BACKEND_URL}/user/login`, {
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-    console.log("🚀 ~ handleSubmit ~ authToken:", response.data);
-    if (response.status == 201) {
-      console.log(response.data.message);
-      return;
+      let response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/user`,
+        {
+          email: data.get("email"),
+          password: data.get("password"),
+          username: data.get("username"),
+          role: data.get("role"),
+        }
+      );
+
+      toast.success(response.data.message, {
+        position: "top-right",
+      });
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
+
+      console.log("🚀 ~ handleSubmit ~ response:", response);
+    } catch (error) {
+      toast.error(error.message, {
+        position: "top-right",
+      });
     }
-
-    let authToken = response.data.data.token;
-    Cookies.set("authToken", authToken);
-    secureLocalStorage.setItem("userRole", response.data.data.role);
-
-    navigate("/");
-
-    let checkLoginData = dummyData.find(
-      (oneObj) => oneObj.email == data.get("email")
-    );
   };
-
+  let radioFields = [
+    { label: "Buyer", value: "user" },
+    { label: "Seller", value: "seller" },
+  ];
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
@@ -131,7 +127,7 @@ export default function LoginPage() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Sign Up
             </Typography>
             <Box
               component="form"
@@ -139,6 +135,16 @@ export default function LoginPage() {
               onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="username"
+                label="Name"
+                name="username"
+                autoComplete="username"
+                autoFocus
+              />
               <TextField
                 margin="normal"
                 required
@@ -159,27 +165,30 @@ export default function LoginPage() {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
+
+              <RowRadioButtonsGroup
+                fieldsData={radioFields}
+                heading={"Register as "}
+                radioGroupName={"role"}
               />
+
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Sign Up
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  {/* <Link href="#" variant="body2">
                     Forgot password?
-                  </Link>
+                  </Link> */}
                 </Grid>
                 <Grid item>
-                  <Link href="/register" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                  <Link href="/login" variant="body2">
+                    {"Already have an account? Sign In"}
                   </Link>
                 </Grid>
               </Grid>
@@ -188,6 +197,7 @@ export default function LoginPage() {
           </Box>
         </Grid>
       </Grid>
+      <Toaster />
     </ThemeProvider>
   );
 }
