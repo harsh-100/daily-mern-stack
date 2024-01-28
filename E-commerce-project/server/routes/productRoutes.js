@@ -5,6 +5,7 @@ const {
   deleteProduct,
   getProductById,
   updateProductById,
+  getProductBySellerId,
 } = require("../controllers/productController");
 const authCheck = require("../middlewares/auth");
 const roleGuard = require("../middlewares/roleGuard");
@@ -13,6 +14,9 @@ const router = express.Router();
 
 // localhost:5000/api/product
 // s3 -> base64 ->
+
+router.get("/seller", authCheck, getProductBySellerId);
+
 router.get(
   "/",
   authCheck,

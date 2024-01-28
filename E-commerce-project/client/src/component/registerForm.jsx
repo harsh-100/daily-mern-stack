@@ -11,7 +11,7 @@ import Cookies from "js-cookie";
 import CssBaseline from "@mui/material/CssBaseline";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Paper from "@mui/material/Paper";
 import RowRadioButtonsGroup from "./common/radioButton";
@@ -19,6 +19,8 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+// import Link from "@mui/material/Link";
 
 // import { useDispatch } from "react-redux";
 
@@ -187,7 +189,7 @@ export default function RegisterForm() {
                   </Link> */}
                 </Grid>
                 <Grid item>
-                  <Link href="/login" variant="body2">
+                  <Link to="/login" variant="body2">
                     {"Already have an account? Sign In"}
                   </Link>
                 </Grid>

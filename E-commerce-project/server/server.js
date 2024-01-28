@@ -12,6 +12,9 @@ let port = process.env.PORT || 5001;
 
 app.use(bodyParser.json());
 
+// app.get("/product/seller", (req, res) => {
+//   res.send("Main file");
+// });
 app.use("/", mainRoute);
 
 // app.use('/api/product',)

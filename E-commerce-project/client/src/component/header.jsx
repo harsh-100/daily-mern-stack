@@ -26,11 +26,8 @@ const Header = () => {
         {userRole == SELLER_ROLE && (
           <>
             {" "}
-            <Button color="inherit" component={Link} to="/add-products">
-              Add Products
-            </Button>
-            <Button color="inherit" component={Link} to="/view-products">
-              View Products
+            <Button color="inherit" component={Link} to="/seller/product">
+              Products
             </Button>
           </>
         )}

@@ -91,10 +91,23 @@ const updateProductById = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+const getProductBySellerId = async (req, res) => {
+  try {
+    const sellerId = req.userId;
+
+    let allSellerProducts = await ProductModel.find({ userId: sellerId });
+
+    res.status(200).json(allSellerProducts);
+  } catch (error) {
+    res.status(404).json({ message: "Internal error occured" });
+  }
+};
 module.exports = {
   getProducts,
   addProduct,
   deleteProduct,
   getProductById,
   updateProductById,
+  getProductBySellerId,
 };

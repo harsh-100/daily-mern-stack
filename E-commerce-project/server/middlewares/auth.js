@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const authCheck = async (req, res, next) => {
   try {
+    console.log("Enter >>>>>");
     let token = req.headers.authorization;
 
     if (!token) {
@@ -17,7 +18,7 @@ const authCheck = async (req, res, next) => {
 
     //   req
 
-    console.log(token);
+    console.log("Token >>>", token);
 
     next();
   } catch (error) {

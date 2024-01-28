@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Header from "./header";
 import ProductList from "./productList";
+import SellerAddProductPage from "./my-comp/addProduct";
 import axios from "axios";
 
 // import { Box } from "@mui/material";

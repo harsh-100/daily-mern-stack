@@ -1,11 +1,17 @@
 Task Today :
 
-- Make a register form (https://mui.com/material-ui/getting-started/templates/)
-- add appopriate links
-- add toast message (https://react-hot-toast.com/)
-- get role , other user info like email from login api
-- get the role of the user who is logged in (save role in local storage (secure localStorage))
-- show the items in navbar on the based of roles and make those pages available to those users only
+- Add a new seller with register - done
+- give a product route to the navbar and redirect to -> /seller/product -done
+- show the products of that seller who added it in table - done
+
+- add products page to -> seller/product/add - > form details - >
+
+- edit button click on product -> seller/product/edit/:id
+- make a form for adding new product and send to the database
+
+- use yup and hook-form
+
+- edit products page to -> seller/product/edit/:id
 
   Structure :
 
