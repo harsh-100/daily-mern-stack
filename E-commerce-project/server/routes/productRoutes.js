@@ -25,9 +25,9 @@ router.get(
 );
 router.post(
   "/",
-  // authCheck,
+  authCheck,
   // roleGuard("seller"),
-  upload.single("image"),
+  // upload.single("image"),
   addProduct
 );
 

@@ -4,10 +4,14 @@ import * as yup from "yup";
 
 import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
+import React, { useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
+import { BACKEND_URL } from "../constants/routes";
+import Cookies from "js-cookie";
 import Header from "./header";
-import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const schema = yup.object().shape({
@@ -27,13 +31,19 @@ const schema = yup.object().shape({
   category: yup.string().required("Category is required"),
   color: yup.string().required("Color is required"),
   size: yup.string().required("Size is required"),
-  image: yup.mixed().required("Image is required"),
+  // image: yup.mixed().required("Image is required"),
 });
 
 const SellerAddProductPage = ({ history }) => {
+  const navigate = useNavigate();
+  // useEffect(() => {
+  //   setValue("name", "harsh");
+  //   setValue("description", "description");
+  // }, []);
   const {
     handleSubmit,
     control,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -42,19 +52,60 @@ const SellerAddProductPage = ({ history }) => {
   console.log("The eroro", errors);
   const onSubmit = async (data) => {
     try {
-      console.log("the data", data);
-      const formData = new FormData();
-      //   formData.append("name", data.name);
-      //   formData.append("description", data.description);
-      //   formData.append("price", data.price);
-      //   formData.append("stock", data.stock);
-      //   formData.append("category", data.category);
-      //   formData.append("color", data.color);
-      //   formData.append("size", data.size);
-      //   formData.append("image", data.image[0]);
+      const token = Cookies.get("authToken");
+      console.log("the data>>>", data);
+      // const formData = new FormData();
+
+      // formData.append("name", data.name);
+      // formData.append("description", data.description);
+      // formData.append("price", data.price);
+      // formData.append("stock", data.stock);
+      // formData.append("category", data.category);
+      // formData.append("color", data.color);
+      // formData.append("size", data.size);
+      // formData.append("image", data.image[0]);
+
+      const dataObj = {
+        name: data.name,
+        description: data.description,
+        price: data.price,
+        stock: data.stock,
+        category: data.category,
+        color: data.color,
+        size: data.size,
+      };
+
+      // const newObj = { data: JSON.stringify(dataObj) };
+      let response = await axios.post(
+        `${BACKEND_URL}/product`,
+        { data: dataObj },
+        {
+          headers: {
+            Authorization: token,
+            // "content-type": "multipart/form-data",
+          },
+        }
+      );
+
+      if (response.status == 200) {
+        toast.success(response.data.message, {
+          position: "top-right",
+        });
+
+        setTimeout(() => {
+          navigate("/seller/product");
+        }, 1000);
+      } else {
+        toast.error("Not worked", {
+          position: "top-right",
+        });
+      }
+
+      console.log("The response ", response);
 
       //   await axios.post("/api/seller/products/add", formData); // Replace with your actual API endpoint
 
+      // add multipart form data in axios
       // Redirect to the seller products page after successful addition
       //   history.push("/seller/products");
     } catch (error) {
@@ -238,6 +289,7 @@ const SellerAddProductPage = ({ history }) => {
             </Grid>
           </Grid>
         </form>
+        <Toaster />
       </Container>
     </>
   );

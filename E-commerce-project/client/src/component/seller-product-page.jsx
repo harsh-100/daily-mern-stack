@@ -14,6 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
 
 import { BACKEND_URL } from "../constants/routes";
 import Cookies from "js-cookie";
@@ -26,17 +27,19 @@ const SellerProductsPage = () => {
   const token = Cookies.get("authToken");
 
   const navigate = useNavigate();
+
+  async function fetchProductsData() {
+    let products = await axios.get(`${BACKEND_URL}/product/seller`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    setProducts(products.data);
+  }
   useEffect(() => {
     // Fetch products for the logged-in seller
-    (async function () {
-      let products = await axios.get(`${BACKEND_URL}/product/seller`, {
-        headers: {
-          Authorization: token,
-        },
-      });
-
-      setProducts(products.data);
-    })();
+    fetchProductsData();
 
     // iife->
 
@@ -48,9 +51,27 @@ const SellerProductsPage = () => {
     console.log(`Edit product with ID: ${productId}`);
   };
 
-  const handleDelete = (productId) => {
+  const handleDelete = async (productId) => {
+    if (confirm("Are you sure you want to proceed?")) {
+      // user clicked OK
+      console.log(`Delete product with ID: ${productId}`);
+
+      let response = await axios.delete(`${BACKEND_URL}/product/${productId}`);
+
+      if (response.status == 200) {
+        toast.success("Deleted Successfully", {
+          position: "top-right",
+        });
+        fetchProductsData();
+      }
+    } else {
+      // user clicked Cancel
+
+      console.log("ok");
+    }
     // Implement the delete functionality
-    console.log(`Delete product with ID: ${productId}`);
+
+    console.log(response);
   };
 
   return (
@@ -118,6 +139,7 @@ const SellerProductsPage = () => {
             </TableBody>
           </Table>
         </TableContainer>
+        <Toaster />
       </Container>
     </>
   );

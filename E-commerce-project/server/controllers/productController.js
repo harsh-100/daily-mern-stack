@@ -15,16 +15,23 @@ const addProduct = async (req, res) => {
   try {
     // console.log("check the image ", req.file.filename);
     // console.log("THis is check", req.body);
-    let data = JSON.parse(req.body.data);
 
-    console.log("check 2", req.body.data);
+    console.log("THe data>>>>>>>>", req.body);
+
+    // let dataObj = JSON.stringify(req.body);
+
+    let data = req.body.data;
+
+    // let data = JSON.parse(req.body.data);
+
+    // console.log("check 2", req.body.data);
     // let data = JSON.parse(req.body);
     console.log("🚀 ~ addProduct ~ data:", data);
 
-    let newProductObj = { ...data, imageUrl: req.file.filename };
+    let newProductObj = { ...data, userId: req.userId };
     const newProducts = await ProductModel.create(newProductObj);
 
-    res.json(newProducts);
+    res.json({ data: newProducts, message: "Product added successfully" });
   } catch (error) {
     console.log("Error ", error);
     res.status(404).send("Internal server error ");

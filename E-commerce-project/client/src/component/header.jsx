@@ -19,9 +19,13 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
+        {/* <Link to={"/"} > */}
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          My E-Commerce App
+          <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}>
+            My E-Commerce App
+          </Link>
         </Typography>
+        {/* </Link> */}
 
         {userRole == SELLER_ROLE && (
           <>
