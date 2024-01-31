@@ -19,7 +19,7 @@ router.get("/seller", authCheck, getProductBySellerId);
 
 router.get(
   "/",
-  authCheck,
+  // authCheck,
   //  roleGuard(["seller", "admin"]),
   getProducts
 );
@@ -35,7 +35,7 @@ router.post(
 router.get("/:productId", getProductById);
 
 // Update a product by ID
-router.put("/:productId", upload.single("image"), updateProductById);
+router.put("/:productId", authCheck, updateProductById);
 
 // delete a product
 router.delete(

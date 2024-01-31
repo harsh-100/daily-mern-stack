@@ -4,7 +4,9 @@ const bodyParser = require("body-parser");
 const mainRoute = require("./routes");
 const cors = require("cors");
 const connectDb = require("./config/db");
+const morgan = require("morgan");
 app.use(cors());
+app.use(morgan("dev"));
 
 require("dotenv").config();
 connectDb();

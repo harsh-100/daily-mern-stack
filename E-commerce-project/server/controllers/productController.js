@@ -2,7 +2,6 @@ const ProductModel = require("../models/productModel");
 
 const getProducts = async (req, res) => {
   try {
-    console.log("Testing api cehck");
     const products = await ProductModel.find();
     // console.log("🚀 ~ getProducts ~ products:", products);
     res.status(200).json(products);
@@ -76,7 +75,8 @@ const getProductById = async (req, res) => {
 const updateProductById = async (req, res) => {
   try {
     console.log("data>>>", req.body);
-    let origianlData = JSON.parse(req.body.data);
+    // let origianlData = JSON.parse(req.body.data);
+    let origianlData = req.body;
     let newData;
     if (req.file) {
       newData = { ...origianlData, imageUrl: req.file.filename };
@@ -92,7 +92,9 @@ const updateProductById = async (req, res) => {
     if (!product) {
       return res.status(404).json({ error: "Product not found" });
     }
-    res.status(200).json(product);
+    res
+      .status(200)
+      .json({ data: product, message: "Updated Successfully", status: 200 });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });

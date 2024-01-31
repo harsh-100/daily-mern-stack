@@ -15,11 +15,10 @@ const HomePage = () => {
   //   let result = [];
   const getProductsData = async () => {
     let token = Cookies.get("authToken");
-    console.log("🚀 ~ getProductsData ~ token:", token);
     const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/product`, {
-      headers: {
-        Authorization: token,
-      },
+      // headers: {
+      //   Authorization: token,
+      // },
     });
 
     // const result = await res.json();
@@ -32,6 +31,7 @@ const HomePage = () => {
   return (
     <>
       <Header />
+      {/* <header></header> */}
       <ProductList productsData={productsData} />
     </>
   );

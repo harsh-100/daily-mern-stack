@@ -20,6 +20,7 @@ import { BACKEND_URL } from "../constants/routes";
 import Cookies from "js-cookie";
 import Header from "./header";
 import axios from "axios";
+import secureLocalStorage from "react-secure-storage";
 import { useNavigate } from "react-router-dom";
 
 const SellerProductsPage = () => {
@@ -49,6 +50,8 @@ const SellerProductsPage = () => {
   const handleEdit = (productId) => {
     // Implement the edit functionality
     console.log(`Edit product with ID: ${productId}`);
+
+    navigate(`/seller/product/edit/${productId}`);
   };
 
   const handleDelete = async (productId) => {
@@ -73,6 +76,9 @@ const SellerProductsPage = () => {
 
     console.log(response);
   };
+
+  const userRole = secureLocalStorage.getItem("userRole");
+  console.log("🚀 ~ SellerProductsPage ~ userRole:", userRole);
 
   return (
     <>

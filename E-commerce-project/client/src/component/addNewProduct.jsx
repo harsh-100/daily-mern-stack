@@ -6,12 +6,12 @@ import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
 import React, { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { BACKEND_URL } from "../constants/routes";
 import Cookies from "js-cookie";
 import Header from "./header";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const schema = yup.object().shape({
@@ -35,11 +35,33 @@ const schema = yup.object().shape({
 });
 
 const SellerAddProductPage = ({ history }) => {
+  // console.log("🚀 ~ SellerAddProductPage ~ params:", params);
+
+  const { productId } = useParams();
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   setValue("name", "harsh");
-  //   setValue("description", "description");
-  // }, []);
+
+  // pure functions
+  const fetchProductById = async (proId) => {
+    let response = await axios.get(`${BACKEND_URL}/product/${proId}`);
+
+    let productData = response.data;
+    console.log("The result", response.data);
+    setValue("name", productData.name);
+    setValue("category", productData.category);
+    setValue("description", productData.description);
+    // setValue('color',productData.category)
+    setValue("price", productData.price);
+    setValue("stock", productData.stock);
+    // setValue("price",)
+    // setValue('size',productData.category)
+    // setValue('',productData.category)
+  };
+
+  useEffect(() => {
+    if (productId) {
+      fetchProductById(productId);
+    }
+  }, [productId]);
   const {
     handleSubmit,
     control,
@@ -54,38 +76,44 @@ const SellerAddProductPage = ({ history }) => {
     try {
       const token = Cookies.get("authToken");
       console.log("the data>>>", data);
-      // const formData = new FormData();
-
-      // formData.append("name", data.name);
-      // formData.append("description", data.description);
-      // formData.append("price", data.price);
-      // formData.append("stock", data.stock);
-      // formData.append("category", data.category);
-      // formData.append("color", data.color);
-      // formData.append("size", data.size);
-      // formData.append("image", data.image[0]);
-
+      const attributes = [
+        { name: "Color", value: data.color },
+        { name: "Size", value: data.size },
+      ];
       const dataObj = {
         name: data.name,
         description: data.description,
         price: data.price,
         stock: data.stock,
         category: data.category,
-        color: data.color,
-        size: data.size,
+        attributes: attributes,
       };
 
       // const newObj = { data: JSON.stringify(dataObj) };
-      let response = await axios.post(
-        `${BACKEND_URL}/product`,
-        { data: dataObj },
-        {
-          headers: {
-            Authorization: token,
-            // "content-type": "multipart/form-data",
-          },
-        }
-      );
+
+      let response;
+
+      let config = {
+        headers: {
+          Authorization: token,
+        },
+      };
+
+      if (productId) {
+        console.log("The edit fucntion");
+
+        response = await axios.put(
+          `${BACKEND_URL}/product/${productId}`,
+          dataObj,
+          config
+        );
+      } else {
+        response = await axios.post(
+          `${BACKEND_URL}/product`,
+          { data: dataObj },
+          config
+        );
+      }
 
       if (response.status == 200) {
         toast.success(response.data.message, {
@@ -101,7 +129,7 @@ const SellerAddProductPage = ({ history }) => {
         });
       }
 
-      console.log("The response ", response);
+      // console.log("The response ", response);
 
       //   await axios.post("/api/seller/products/add", formData); // Replace with your actual API endpoint
 

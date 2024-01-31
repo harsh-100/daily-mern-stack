@@ -1,6 +1,30 @@
 body {
   margin: 0;
 }
+
+/* NotFound.css */
+
+.not-found-container {
+  text-align: center;
+  padding: 50px;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.5em;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.not-found-image {
+  max-width: 100%;
+  height: auto;
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
