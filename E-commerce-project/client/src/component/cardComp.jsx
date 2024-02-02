@@ -1,11 +1,14 @@
 import * as React from "react";
 
+import { useDispatch, useSelector } from "react-redux";
+
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import { setProducts } from "../store/actions/productsActions";
 
 // import { Link } from "react-router-dom";
 
@@ -14,13 +17,20 @@ import Typography from "@mui/material/Typography";
 // import { setProducts } from "../store/actions/productsActions";
 
 export default function CardComponent({ product }) {
+  const dispatch = useDispatch();
   // const dispatch = useDispatch();
-  // const productsInCart = useSelector((state) => state.cart.products);
+  const productsInCart = useSelector((state) => state.cart.products);
+  // console.log("🚀 ~ CardComponent ~ productsInCart:", productsInCart);
 
   function isItemInCart() {
     return false;
     // return productsInCart.some((oneObj) => oneObj.id == product.id);
   }
+
+  const handleAddToCart = () => {
+    console.log("the product", product);
+    dispatch(setProducts(product));
+  };
   return (
     <Card sx={{ maxWidth: 345 }}>
       {/* <Link
@@ -53,7 +63,9 @@ export default function CardComponent({ product }) {
             Already Added
           </Button>
         ) : (
-          <Button size="small">Add To Cart</Button>
+          <Button onClick={handleAddToCart} size="small">
+            Add To Cart
+          </Button>
         )}
       </CardActions>
     </Card>

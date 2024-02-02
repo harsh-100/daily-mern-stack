@@ -1,5 +1,12 @@
 import { ADMIN_ROLE, SELLER_ROLE } from "../constants/userRoles";
-import { AppBar, Button, IconButton, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Badge,
+  Button,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import React, { useContext } from "react";
 
 import Brightness4Icon from "@mui/icons-material/Brightness4";
@@ -7,12 +14,15 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../theme";
 import secureLocalStorage from "react-secure-storage";
+import { useSelector } from "react-redux";
 
 // import { ThemeContext } from "../Theme";
 
 const Header = () => {
   const { toggleTheme } = useContext(ThemeContext);
-  //   console.log("🚀 ~ Header ~ isDarkMode:", isDarkMode);
+  const productsInCart = useSelector((state) => state.cart.products);
+  let countOfProduct = productsInCart.length;
+  console.log("🚀 ~ Header ~ countOfProduct:", countOfProduct);
 
   const userRole = secureLocalStorage.getItem("userRole");
   console.log("🚀 ~ Header ~ userRole:", userRole);
@@ -39,9 +49,12 @@ const Header = () => {
         <Button color="inherit" component={Link} to="/orders">
           Orders
         </Button>
-        <Button color="inherit" component={Link} to="/cart">
-          Cart
-        </Button>
+
+        <Badge badgeContent={countOfProduct} color="error">
+          <Button color="inherit" component={Link} to="/cart">
+            Cart
+          </Button>
+        </Badge>
 
         {userRole == ADMIN_ROLE && (
           <>

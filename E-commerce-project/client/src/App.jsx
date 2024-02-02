@@ -48,6 +48,7 @@ function App() {
   return (
     <>
       {/* <Header /> */}
+
       <BrowserRouter>
         <Routes>
           <Route element={<HomePage />} path="/" />
