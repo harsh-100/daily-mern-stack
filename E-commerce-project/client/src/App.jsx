@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 import AddNewProduct from "./component/addNewProduct";
+import CartPage from "./component/cartpage";
 import Header from "./component/header";
 import HomePage from "./component/homePage";
 import LearnHOC from "./component/learnHoc";
@@ -69,6 +70,8 @@ function App() {
               path="/seller/product/edit/:productId"
             />
           </Route>
+
+          <Route element={<CartPage />} path="/cart" />
 
           <Route
             path="*"

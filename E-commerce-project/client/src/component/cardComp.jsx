@@ -23,8 +23,8 @@ export default function CardComponent({ product }) {
   // console.log("🚀 ~ CardComponent ~ productsInCart:", productsInCart);
 
   function isItemInCart() {
-    return false;
-    // return productsInCart.some((oneObj) => oneObj.id == product.id);
+    // console.log(productsInCart.some((oneObj) => oneObj._id == product._id));
+    return productsInCart.some((oneObj) => oneObj._id == product._id);
   }
 
   const handleAddToCart = () => {
