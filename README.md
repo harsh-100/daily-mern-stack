@@ -1,6 +1,12 @@
-
+███╗░░░███╗███████╗██████╗░███╗░░██╗
+████╗░████║██╔════╝██╔══██╗████╗░██║
+██╔████╔██║█████╗░░██████╔╝██╔██╗██║
+██║╚██╔╝██║██╔══╝░░██╔══██╗██║╚████║
+██║░╚═╝░██║███████╗██║░░██║██║░╚███║
+╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚═╝╚═╝░░╚══╝
 
 # MERN Stack Development Learning Repository
+
 ### Daily-mern-stack
 
 ![MERN Logo](https://miro.medium.com/v2/resize:fit:678/0*kxPYwfJmkXZ3iCWy.png)
@@ -8,6 +14,7 @@
 Welcome to the MERN Stack Development Learning Repository! This repository is designed to help beginners get started with MERN stack development and provides a comprehensive guide to building web applications using MongoDB, Express.js, React, and Node.js.
 
 ## Table of Contents
+
 - [About the Repository](#about-the-repository)
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
@@ -23,12 +30,13 @@ This repository serves as a learning resource for individuals who want to dive i
 To start learning MERN stack development, follow these steps:
 
 1. **Clone the Repository**:
-git clone https://github.com/harsh-100/daily-mern-stack.git
+   git clone https://github.com/harsh-100/daily-mern-stack.git
 
 2. **Navigate to the Directory**:
-cd daily-mern-stack
+   cd daily-mern-stack
 
 3. **Explore the Folders**:
+
 - `html-css`: Contains HTML and CSS code examples.
 - `mongodb-express`: Learn about setting up MongoDB and creating a backend with Express.js.
 - `react`: Dive into front-end development with React.

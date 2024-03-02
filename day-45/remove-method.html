@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Example 2: Remove an Element -->
+    <h2>Example 2: Remove an Element</h2>
+
+    <!-- Element to remove -->
+    <p id="elementToRemove">This is the element to remove.</p>
+
+    <button onclick="removeElement()">Remove Element</button>
+
+    <script>
+      function removeElement() {
+        var elementToRemove = document.getElementById("elementToRemove");
+
+        elementToRemove.parentNode.removeChild(elementToRemove);
+      }
+    </script>
+  </body>
+</html>

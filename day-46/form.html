@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #error-message {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" id="myForm">
+      <label for="email">Enter your Email </label>
+
+      <input type="email" name="email" id="email" /><br />
+      <span id="error-message"></span><br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      let form = document.getElementById("myForm");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let emailValue = document.getElementById("email").value;
+        let errorMessage = document.getElementById("error-message");
+
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        let result = emailPattern.test(emailValue);
+
+        if (result) {
+          errorMessage.textContent = "";
+          return;
+        } else {
+          errorMessage.textContent = "You have not entered a good value 😒";
+          document.getElementById("email").style.borderColor = "red";
+        }
+
+        console.log("🚀 ~ file: form.html:18 ~ emailValue:", result);
+      });
+    </script>
+  </body>
+</html>

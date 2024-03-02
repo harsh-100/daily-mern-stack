@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Example 3: Replace an Element -->
+    <h2>Example 3: Replace an Element</h2>
+
+    <!-- Elements for replacement -->
+    <p id="oldElement">This is the old element.</p>
+
+    <button onclick="replaceElement()">Replace Element</button>
+
+    <script>
+      function replaceElement() {
+        var oldElement = document.getElementById("oldElement");
+
+        var newElement = document.createElement("p");
+        newElement.textContent = "This is the new element.";
+
+        oldElement.parentNode.replaceChild(newElement, oldElement);
+      }
+    </script>
+  </body>
+</html>

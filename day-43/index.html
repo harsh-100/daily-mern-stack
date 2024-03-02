@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- dom (document object model ) -->
+
+    <p id="myPara" style="color: yellow">THis is the text</p>
+    <p class="demo">this is my para</p>
+
+    <img id="myImage" src="" /><br />
+
+    <button id="myBtn">My button</button>
+
+    <script>
+      //   how to change the style of para
+
+      let btn = document.getElementById("myBtn");
+
+      btn.addEventListener("click", () => {
+        console.log("testing");
+        // let img = document.getElementById("myImage");
+
+        // let para = document.getElementById("myPara");
+        // para.style.color = "red";
+
+        // //   para.style.color = "red";
+
+        // img.setAttribute("alt", "change image");
+        // img.setAttribute(
+        //   "src",
+        //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbCDZZfnTfo6P6OVAR4PEbLGDBPs3hkIocmS18c9Y6MA&s"
+        // );
+      });
+    </script>
+  </body>
+</html>

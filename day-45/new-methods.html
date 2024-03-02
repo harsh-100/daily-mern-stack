@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulating Elements</title>
+  </head>
+  <body>
+    <!-- Example 1: Create an Element -->
+    <h2>Example 1: Create an Element</h2>
+
+    <!-- This is where we'll add a new element -->
+    <div id="container"></div>
+
+    <script>
+      var newDiv = document.createElement("div");
+      newDiv.id = "myNewDiv";
+      newDiv.className = "myClass";
+      newDiv.textContent = "This is new content";
+      newDiv.style.color = "red";
+      document.getElementById("container").appendChild(newDiv);
+    </script>
+  </body>
+</html>

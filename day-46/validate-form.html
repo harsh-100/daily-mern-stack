@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation Example</title>
+  </head>
+  <body>
+    <h1>Form Validation</h1>
+    <form id="myForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <span id="error-message" class="error-message"></span>
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      const form = document.getElementById("myForm");
+      const emailInput = document.getElementById("email");
+      const errorMessage = document.getElementById("error-message");
+
+      // Function to validate the email format
+      function isValidEmail(email) {
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailPattern.test(email);
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = emailInput.value;
+
+        if (!isValidEmail(email)) {
+          errorMessage.textContent = "Please enter a valid email address.";
+          errorMessage.style.color = "red";
+          emailInput.style.borderColor = "red";
+        } else {
+          errorMessage.textContent = ""; // Clear the error message
+          emailInput.style.borderColor = "initial"; // Reset input border color
+
+          // Here, you can submit the form data to the server or perform other actions
+          // For this example, we're not doing anything with the form data.
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<mxfile host="65bd71144e">
+    <diagram id="Mt-eNmTIaz9Gyn3QCbyD" name="Page-1">
+        <mxGraphModel dx="650" dy="149" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="30" width="590" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Enter your resource name" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="120" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Enter resource link" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="180" width="180" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="add&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="240" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;" edge="1" parent="1" source="2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="300" y="190" as="sourcePoint"/>
+                        <mxPoint x="330" y="150" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="330" y="40"/>
+                            <mxPoint x="330" y="280"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="60" width="230" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Resource 1(href of link 1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="205" width="180" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Resource 2(href of link 1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="170" width="180" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Resource 3(href of link 1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="135" width="180" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Resource 4(href of link 1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="100" width="180" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Resource 5(href of link 1)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="65" width="180" height="35" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

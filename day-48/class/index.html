@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="myTime"></h1>
+
+    <script>
+      function myFunction() {
+        let heading = document.getElementById("myTime");
+        let date = new Date();
+
+        heading.innerHTML = `${date.getHours()}:
+            ${date.getMinutes()}:
+            ${date.getSeconds()}`;
+      }
+
+      setInterval(myFunction, 1000);
+      // myFunction();
+    </script>
+  </body>
+</html>

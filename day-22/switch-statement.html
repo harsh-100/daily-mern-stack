@@ -9,36 +9,41 @@
     <!-- switch statement -->
 
     <script>
-      let day = "saturday";
-      switch (day) {
-        case "monday":
-          console.log("Today is working day");
+      // let day = "saturday";
+      // switch (day) {
+      //   case "monday":
+      //     console.log("Today is working day");
+      //     break;
+      //   case "tuesday":
+      //     console.log("Today is worship day");
+      //     break;
+
+      //   default:
+      //     console.log("THis is other day ");
+      //     break;
+      // }
+
+      let age = Number(prompt("What is your age ? "));
+
+      console.log("🚀 ~ file: switch-statement.html:27 ~ age:", typeof age);
+
+      switch (true) {
+        case age < 10:
+          console.log("You are a child");
           break;
-        case "tuesday":
-          console.log("Today is worship day");
+
+        case age >= 10 && age < 18:
+          console.log("You are a teenager");
+          break;
+
+        case age >= 18:
+          console.log("You are a adult");
           break;
 
         default:
-          console.log("THis is other day ");
+          console.log("Enter a proper input ");
           break;
       }
-
-      //   let age = Number(prompt("What is your age ? "));
-      //   console.log("🚀 ~ file: switch-statement.html:27 ~ age:", age);
-
-      //   switch (age) {
-      //     case age > 18 && age < 22:
-      //       console.log("Age is big");
-
-      //       break;
-      //     case age > 23:
-      //       console.log("Age is big");
-
-      //       break;
-
-      //     // default:
-      //     //   break;
-      //   }
     </script>
   </body>
 </html>

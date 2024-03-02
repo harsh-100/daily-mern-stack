@@ -1,0 +1,3 @@
+- What's the status of the todo app till now ?
+- let's make together -> home page , navbar , components
+-

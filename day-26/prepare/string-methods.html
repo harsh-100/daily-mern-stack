@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   That's a comprehensive list of string methods! Here are examples for each method:
+
+      //   .length:
+      let greeting1 = "Hello, World!";
+      let length = greeting1.length;
+      console.log(length); // Output: 13
+
+      //   .slice(start, end):
+      let message1 = "Hello, World!";
+      let slicedMessage = message1.slice(7, 12);
+      console.log(slicedMessage); // Output: World
+
+      //   .trim():
+      let userInput1 = "   Hello, World!   ";
+      let trimmedInput1 = userInput1.trim();
+      console.log(trimmedInput1); // Output: Hello, World!
+
+      //   .trimStart():
+      let userInput2 = "   Hello, World!   ";
+      let trimmedInput2 = userInput2.trimStart();
+      console.log(trimmedInput2); // Output: Hello, World!
+      //   .trimEnd():
+
+      let userInput3 = "   Hello, World!   ";
+      let trimmedInput = userInput3.trimEnd();
+      console.log(trimmedInput); // Output:    Hello, World!
+      //   .replace(searchValue, replaceValue):
+
+      let message2 = "Hello, World!";
+      let newMessage2 = message2.replace("World", "Universe");
+      console.log(newMessage2); // Output: Hello, Universe!
+      //   .replaceAll(searchValue, replaceValue):
+
+      let message3 = "Hello, World! World!";
+      let newMessage3 = message3.replaceAll("World", "Universe");
+      console.log(newMessage3); // Output: Hello, Universe! Universe!
+      //   .split(separator):
+
+      let colors = "Red,Green,Blue";
+      let colorArray = colors.split(",");
+      console.log(colorArray); // Output: ["Red", "Green", "Blue"]
+      // .charAt(index):
+
+      let message4 = "Hello, World!";
+      let character = message4.charAt(7);
+      console.log(character); // Output: W
+      // .concat(...strings):
+
+      let str1 = "Hello";
+      let str2 = "World";
+      let message5 = str1.concat(", ", str2, "!");
+      console.log(message5); // Output: Hello, World!
+      // .toUpperCase():
+
+      let message6 = "Hello, World!";
+      let upperCaseMessage = message6.toUpperCase();
+      console.log(upperCaseMessage); // Output: HELLO, WORLD!
+      // .toLowerCase():
+
+      let message7 = "Hello, World!";
+      let lowerCaseMessage = message7.toLowerCase();
+      console.log(lowerCaseMessage); // Output: hello, world!
+      // .includes(searchValue):
+
+      let message8 = "Hello, World!";
+      let hasHello = message8.includes("Hello");
+      console.log(hasHello); // Output: true
+      // .match(regex):
+
+      let message9 = "Hello, World!";
+      let matches1 = message9.match(/o/g);
+      console.log(matches1); // Output: ["o", "o"]
+      // .matchAll(regex):
+
+      let messageX = "Hello, World!";
+      let matches = [...messageX.matchAll(/o/g)];
+      console.log(matches); // Output: [Array(1), Array(1)]
+      // .lastIndexOf(searchValue):
+
+      let message = "Hello, World!";
+      let lastIndex = message.lastIndexOf("o");
+      console.log(lastIndex); // Output: 8
+      // String Templates:
+
+      let name = "Alice";
+      let greeting = `Hello, ${name}!`;
+      console.log(greeting); // Output: Hello, Alice!
+    </script>
+  </body>
+</html>

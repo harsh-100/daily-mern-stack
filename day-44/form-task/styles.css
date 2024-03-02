@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+form {
+  border: 2px solid #333;
+  padding: 20px;
+  margin: 20px;
+  display: inline-block;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+#result {
+  font-weight: bold;
+  color: green;
+}

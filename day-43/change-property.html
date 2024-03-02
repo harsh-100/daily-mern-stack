@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="myP">joker</p>
+
+    <img src="" />
+    <script>
+      document.getElementById("myP").innerHTML = "New text!"; //innerhtml
+      document.getElementById("myP").className = "New text!"; //attribute
+      //   document.querySelector("img").alt = "check";
+      document.querySelector("img").setAttribute("alt2", "check data");
+      console.log(document.querySelector("img").getAttribute("alt2"));
+
+      document.getElementById("myP").style.color = "red";
+      //   tag.attributes;
+    </script>
+  </body>
+</html>

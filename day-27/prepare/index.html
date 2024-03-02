@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <img src="" alt="my image" />
+
+    <script>
+      function containsword(mainStr, searchStr) {
+        let lowerMainStr = mainStr.toLowerCase();
+        let lowerSearchStr = searchStr.toLowerCase();
+
+        let result = lowerMainStr.includes(lowerSearchStr);
+        // console.log(result);
+        return result;
+      }
+
+      let mainPara = prompt("Enter your Para := ");
+      let searchWord = prompt("Enter your search word:=");
+
+      let available = containsword(mainPara, searchWord);
+
+      console.log("available", available);
+
+      if (available == true) {
+        alert("String match");
+      } else {
+        alert("String does not exist");
+      }
+    </script>
+  </body>
+</html>
